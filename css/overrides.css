@@ -1,0 +1,60 @@
+.site-title {
+    font-weight: 500;
+    font-size: 5rem;
+}
+
+.site-nav {
+    font-weight: 400;
+    font-size: 2rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+   background-color: lightseagreen;
+}
+
+.post-card-excerpt p {
+    text-align: justify;
+}
+.post-card-author {
+    color: green;
+}
+
+.post-card post {
+    background-color: lightcoral;
+}
+
+.post-card-content {
+    border: 0.1px solid black;
+}
+
+.post-card-image {
+    max-width: 100%;
+    background-size: 100%;
+    background-color: white;
+    border: 0.1px solid black;
+    padding: 15px;
+}
+
+.pagination {
+    color: black;
+    background-color: white;
+}
+
+.pagination .hide {
+    color: rgb(67, 133, 38);
+    background-color: white;
+}
+
+.text-abstract {
+    text-align: justify;
+    text-justify: auto;
+}
+
+#abstract {
+    text-decoration: underline;
+}
+
+#you-are-welcome- p {
+    font-size: 3rem;
+}

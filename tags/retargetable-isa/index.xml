@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Retargetable ISA on Tech Vagabond!</title>
+    <link>/tags/retargetable-isa/</link>
+    <description>Recent content in Retargetable ISA on Tech Vagabond!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Thu, 04 Jul 2002 14:57:38 +0200</lastBuildDate><atom:link href="/tags/retargetable-isa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Optimization of a retargetable functional simulator for embedded processors</title>
+      <link>/optimization-of-a-retargetable-functional-simulator-for-embedded-processors/</link>
+      <pubDate>Thu, 04 Jul 2002 14:57:38 +0200</pubDate>
+      
+      <guid>/optimization-of-a-retargetable-functional-simulator-for-embedded-processors/</guid>
+      <description>Abstract: The objective of this research is to develop tools and methods for system-level optimization of embedded software that is executed on system-on-chip platforms. In particular, this paper proposes a new instruction-set simulator&#39;s tool flow which has been extended with some retargetability features and multiple program representations. We propose an innovative way to improve the simulation speed, that is a key factor for embedded software optimization, by using a synthesis approach.</description>
+    </item>
+    
+  </channel>
+</rss>

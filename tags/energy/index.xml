@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Energy on Tech Vagabond!</title>
+    <link>/tags/energy/</link>
+    <description>Recent content in Energy on Tech Vagabond!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Sat, 04 Sep 2004 14:57:38 +0200</lastBuildDate><atom:link href="/tags/energy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Efficient and effective simulation of memory maps for system-on-chip</title>
+      <link>/efficient-and-effective-simulation-of-memory-maps-for-system-on-chip/</link>
+      <pubDate>Sat, 04 Sep 2004 14:57:38 +0200</pubDate>
+      
+      <guid>/efficient-and-effective-simulation-of-memory-maps-for-system-on-chip/</guid>
+      <description>Abstract: The design of complex system-on-chip (SOC) requires new methods and tools for the optimization of embedded software which is executed on ever more complex hardware architectures. The tuning of the memory subsystem is particularly difficult due to the many design parameters which are involved and the long time which is required to simulate different design configurations. We propose a very effective mechanism for the simulation of generic memory maps on architectures with instruction and/or data cache memory.</description>
+    </item>
+    
+    <item>
+      <title>Flexible Simulation of Memory Maps for Embedded Systems</title>
+      <link>/flexible-simulation-of-memory-maps-for-embedded-systems/</link>
+      <pubDate>Sat, 04 Sep 2004 14:57:38 +0200</pubDate>
+      
+      <guid>/flexible-simulation-of-memory-maps-for-embedded-systems/</guid>
+      <description>Abstract: The design of complex system-on-chip (SOC) requires new methods and tools for the optimization of embedded software which is executed on ever more complex hardware architectures. The tuning of the memory subsystem is particularly difficult due to the many design parameters which are involved and the long time which is required to simulate different design configurations. In this paper, we propose a very effective mechanism for the simulation of generic memory maps on architectures with instruction and/or data cache memory.</description>
+    </item>
+    
+    <item>
+      <title>An ISA-retargetable framework for embedded software analysis</title>
+      <link>/an-isa-retargetable-framework-for-embedded-software-analysis/</link>
+      <pubDate>Sat, 04 Jan 2003 14:57:38 +0200</pubDate>
+      
+      <guid>/an-isa-retargetable-framework-for-embedded-software-analysis/</guid>
+      <description>Abstract: Industry requires new advanced tools and methodologies for the design of complex system-on-chip platforms. In STMicroelectronics we developed an innovative retargetable technology for the analysis and optimization of embedded software. In this paper we provide an overview of our retargetable tool chain which consists of: a specification reader a disassembler a code analyzer and a functional simulator. Their capabilities, specific features and limitations are described in detail.  [PDF] </description>
+    </item>
+    
+    <item>
+      <title>Value-based source code specialization for energy reduction</title>
+      <link>/value-based-source-code-specialization-for-energy-reduction/</link>
+      <pubDate>Wed, 04 Sep 2002 14:57:38 +0200</pubDate>
+      
+      <guid>/value-based-source-code-specialization-for-energy-reduction/</guid>
+      <description>Abstract: The objective of this research is to create a framework for energy optimization of software programs. In particular, this paper presents algorithms and a tool flow to reduce the computational effort of programs, using value profiling and partial evaluation. Such a reduction translates into both energy savings and performance improvement. Namely, our tool reduces computational effort by specializing a program for highly expected situations. Procedure calls which are frequently executed with same parameter values are defined as highly expected situations (common cases).</description>
+    </item>
+    
+    <item>
+      <title>Value-sensitive automatic code specialization for embedded software</title>
+      <link>/value-sensitive-automatic-code-specialization-for-embedded-software/</link>
+      <pubDate>Sun, 04 Aug 2002 14:57:38 +0200</pubDate>
+      
+      <guid>/value-sensitive-automatic-code-specialization-for-embedded-software/</guid>
+      <description>Abstract: The objective of this work is to create a framework for the optimization of embedded software. We present algorithms and a tool flow to reduce the computational effort of programs, using value profiling and partial evaluation. Such a reduction translates into both energy savings and average-case performance improvement, while preserving a tolerable increase of worst case performance and code size. Our tool reduces the computational effort by specializing frequently executed procedures for the most common values of their parameters.</description>
+    </item>
+    
+  </channel>
+</rss>

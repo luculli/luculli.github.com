@@ -13,27 +13,51 @@ body {
    background-color: lightseagreen;
 }
 
+.post-card-title {
+    font-family: "Sofia", sans-serif;
+    /* color: #0a4870; */
+}
+
 .post-card-excerpt p {
     text-align: justify;
+    padding-top: 15px;
 }
+
 .post-card-author {
     color: green;
 }
 
-.post-card post {
+/* .post-card post {
     background-color: lightcoral;
-}
+} */
 
 .post-card-content {
     border: 0.1px solid black;
+    background-color: #fdfdfd
 }
+
+.post-card-meta {
+    margin-top: 0.5em;
+}
+
 
 .post-card-image {
     max-width: 100%;
     background-size: 100%;
-    background-color: white;
+    background-color: #fdfdfd;
     border: 0.1px solid black;
     padding: 15px;
+}
+
+/* this is not working !! */
+.post-card-header img .page-not-found {
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
+
+    background-color: khaki;
+    filter: sepia(100%);
+    -webkit-filter: sepia(100%);
 }
 
 .pagination {
@@ -51,10 +75,87 @@ body {
     text-justify: auto;
 }
 
+.text-abstract .text-code-r {
+    text-align: justify;
+    text-justify: auto;
+    font-weight: 400;
+    font-size: 1.3rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;  
+
+    line-height: 1.4em;
+    overflow: auto;
+}
+
+/* .text-code-r .highlight {
+    background-color: blanchedalmond;
+} */
+
+/* Style for images in blog with responsive layout */
+.image-row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.image-column {
+    float: left;
+    width: 50%;
+    padding: 5px;
+}
+
+@media screen and (max-width: 500px) {
+    .image-column {
+        width: 100%;
+    }
+}
+
+/* Style reponsive center image */
+.responsive {
+    max-width:100%;
+    max-height:100%;
+  }
+ 
+ .center {
+   position: absolute;
+   top: 50%;
+   left: 50%; 
+   transform: translate(-50%, -50%);
+ }
+ 
+ .image-center {
+   position: relative;
+ }
+
+ .image-center2 {
+    max-width: 60%;
+    height: auto;
+    display: table;
+    margin: 0 auto;
+}
+
+
+/* Main page style */
 #abstract {
     text-decoration: underline;
 }
 
 #you-are-welcome- p {
     font-size: 3rem;
+}
+
+.text-abstract .text-code-r {
+    background-color: brown;
+}
+
+.text-code-r .highlight pre {
+    overflow: auto;
+    background-color: lightgoldenrodyellow;
+    padding-left: 5px;
+}
+
+.inner .post-card-title h2 {
+    text-decoration-line: underline;
 }

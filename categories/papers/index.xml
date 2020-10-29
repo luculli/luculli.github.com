@@ -2,143 +2,143 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Papers on Tech Vagabond!</title>
-    <link>/categories/papers/</link>
+    <link>https://techvagabond.org/categories/papers/</link>
     <description>Recent content in Papers on Tech Vagabond!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 04 Jan 2019 14:57:38 +0200</lastBuildDate><atom:link href="/categories/papers/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 04 Jan 2019 14:57:38 +0200</lastBuildDate><atom:link href="https://techvagabond.org/categories/papers/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Methodology for risk management related to cyber-security of Unmanned Aircraft Systems</title>
-      <link>/methodology-for-risk-management-related-to-cyber-security-of-unmanned-aircraft-systems/</link>
+      <link>https://techvagabond.org/methodology-for-risk-management-related-to-cyber-security-of-unmanned-aircraft-systems/</link>
       <pubDate>Fri, 04 Jan 2019 14:57:38 +0200</pubDate>
       
-      <guid>/methodology-for-risk-management-related-to-cyber-security-of-unmanned-aircraft-systems/</guid>
+      <guid>https://techvagabond.org/methodology-for-risk-management-related-to-cyber-security-of-unmanned-aircraft-systems/</guid>
       <description>Abstract: Nowadays, the market of Unmanned Aerial Systems (UAS) develops progressively with a lot of applications such as: infrastructure monitoring, law enforcement, environment research, goods transportation, etc. However, due to the lack of human observation, communication capacities, and protection, a UAS is an appropriate target for a criminal or a terrorist cyber attack. Therefore, risks related to the cyber-security need to be taken into account during the development of a UAS.</description>
     </item>
     
     <item>
       <title>Patent markets: efficiency conditions for a new &#34;commodity&#34; market</title>
-      <link>/patent-markets-efficiency-conditions-for-a-new-commodity-market/</link>
+      <link>https://techvagabond.org/patent-markets-efficiency-conditions-for-a-new-commodity-market/</link>
       <pubDate>Mon, 04 Mar 2013 14:57:38 +0200</pubDate>
       
-      <guid>/patent-markets-efficiency-conditions-for-a-new-commodity-market/</guid>
+      <guid>https://techvagabond.org/patent-markets-efficiency-conditions-for-a-new-commodity-market/</guid>
       <description>Abstract: Fair valuation of patents is a difficult task. Analytics methods and methodologies exist to evaluate the financial impact of tangible assets on the performance of a business or a company, but non of them can be effectively transposed for hte valuation of intangible assets like patents. Experts suggest that the increasing volume of patents exchanges in commercial transaction signals the start of a &#34;commoditization&#34; process. A more pragmatic approach to assess a fair price would be the creation of a structured market where patents can be freely priced, traded and used as hedge instruments for commercial transactions.</description>
     </item>
     
     <item>
       <title>Le transfert des risques sur brevet: le marché comme solution ultime</title>
-      <link>/le-transfert-des-risques-sur-brevet-le-march%C3%A9-comme-solution-ultime/</link>
+      <link>https://techvagabond.org/le-transfert-des-risques-sur-brevet-le-march%C3%A9-comme-solution-ultime/</link>
       <pubDate>Fri, 04 Jan 2013 14:57:38 +0200</pubDate>
       
-      <guid>/le-transfert-des-risques-sur-brevet-le-march%C3%A9-comme-solution-ultime/</guid>
+      <guid>https://techvagabond.org/le-transfert-des-risques-sur-brevet-le-march%C3%A9-comme-solution-ultime/</guid>
       <description>Abstract: Cet article propose une rétrospective de l&#39;évolution des marchés du brevet, depuis son statut initial d&#39;actif au service de l&#39;établissement d&#39;un monopole jusqu&#39;à devenir un marché stratégique, suivant un processus de mutation dit de commoditisation, que cet article examine en observant les modifications réalisées dans les transferts de risque au gré des mutations. L&#39;ultime étape des transformations en cours pourrait être la financiarisation ou sécurisation du brevet, cette idée est explorée dans la seconde partie de ce travail.</description>
     </item>
     
     <item>
       <title>Interfacing of circuits in an integrated electronic circuit (US Patent 7,843,945)</title>
-      <link>/interfacing-of-circuits-in-an-integrated-electronic-circuit-us-patent-7843945/</link>
+      <link>https://techvagabond.org/interfacing-of-circuits-in-an-integrated-electronic-circuit-us-patent-7843945/</link>
       <pubDate>Mon, 04 Jan 2010 14:57:38 +0200</pubDate>
       
-      <guid>/interfacing-of-circuits-in-an-integrated-electronic-circuit-us-patent-7843945/</guid>
+      <guid>https://techvagabond.org/interfacing-of-circuits-in-an-integrated-electronic-circuit-us-patent-7843945/</guid>
       <description>An interface having internal conductors to transfer data between a sending circuit and a receiving circuit in an integrated electronic circuit, the receiving circuit including an input buffer capable of receiving data and an output terminal for sending to the sending circuit an item of extraction information on each extraction of a data word from the input buffer, and the sending circuit including an enable circuit capable of activating an enable signal according to an item of availability information representative of the memory space available in the input buffer.</description>
     </item>
     
     <item>
       <title>Generic development tools for embedded software design (US Patent App. 10/666,725)</title>
-      <link>/generic-development-tools-for-embedded-software-design-us-patent-app.-10/666725/</link>
+      <link>https://techvagabond.org/generic-development-tools-for-embedded-software-design-us-patent-app.-10/666725/</link>
       <pubDate>Tue, 04 Jan 2005 14:57:38 +0200</pubDate>
       
-      <guid>/generic-development-tools-for-embedded-software-design-us-patent-app.-10/666725/</guid>
+      <guid>https://techvagabond.org/generic-development-tools-for-embedded-software-design-us-patent-app.-10/666725/</guid>
       <description>Process for processing an executable embedded software code, said process comprising: reading an executable embedded code for one predetermined processor; extracting code sections from said executable embedded code; reading a file containing a description of a set of instructions for said predetermined processor, based on the concepts of TOKEN, FIELDS, ATTRIBUTES and CONSTRUCTORS of the SLED language, enriched with an additional CLASS definition grouping different instruction under a same label; and using said description in order to derive from said TOKEN, FIELDS, ATTRIBUTES, CONSTRUCTORS and CLASS an internal representation taking the form of a decision tree.</description>
     </item>
     
     <item>
       <title>Efficient and effective simulation of memory maps for system-on-chip</title>
-      <link>/efficient-and-effective-simulation-of-memory-maps-for-system-on-chip/</link>
+      <link>https://techvagabond.org/efficient-and-effective-simulation-of-memory-maps-for-system-on-chip/</link>
       <pubDate>Sat, 04 Sep 2004 14:57:38 +0200</pubDate>
       
-      <guid>/efficient-and-effective-simulation-of-memory-maps-for-system-on-chip/</guid>
+      <guid>https://techvagabond.org/efficient-and-effective-simulation-of-memory-maps-for-system-on-chip/</guid>
       <description>Abstract: The design of complex system-on-chip (SOC) requires new methods and tools for the optimization of embedded software which is executed on ever more complex hardware architectures. The tuning of the memory subsystem is particularly difficult due to the many design parameters which are involved and the long time which is required to simulate different design configurations. We propose a very effective mechanism for the simulation of generic memory maps on architectures with instruction and/or data cache memory.</description>
     </item>
     
     <item>
       <title>Flexible Simulation of Memory Maps for Embedded Systems</title>
-      <link>/flexible-simulation-of-memory-maps-for-embedded-systems/</link>
+      <link>https://techvagabond.org/flexible-simulation-of-memory-maps-for-embedded-systems/</link>
       <pubDate>Sat, 04 Sep 2004 14:57:38 +0200</pubDate>
       
-      <guid>/flexible-simulation-of-memory-maps-for-embedded-systems/</guid>
+      <guid>https://techvagabond.org/flexible-simulation-of-memory-maps-for-embedded-systems/</guid>
       <description>Abstract: The design of complex system-on-chip (SOC) requires new methods and tools for the optimization of embedded software which is executed on ever more complex hardware architectures. The tuning of the memory subsystem is particularly difficult due to the many design parameters which are involved and the long time which is required to simulate different design configurations. In this paper, we propose a very effective mechanism for the simulation of generic memory maps on architectures with instruction and/or data cache memory.</description>
     </item>
     
     <item>
       <title>An ISA-retargetable framework for embedded software analysis</title>
-      <link>/an-isa-retargetable-framework-for-embedded-software-analysis/</link>
+      <link>https://techvagabond.org/an-isa-retargetable-framework-for-embedded-software-analysis/</link>
       <pubDate>Sat, 04 Jan 2003 14:57:38 +0200</pubDate>
       
-      <guid>/an-isa-retargetable-framework-for-embedded-software-analysis/</guid>
+      <guid>https://techvagabond.org/an-isa-retargetable-framework-for-embedded-software-analysis/</guid>
       <description>Abstract: Industry requires new advanced tools and methodologies for the design of complex system-on-chip platforms. In STMicroelectronics we developed an innovative retargetable technology for the analysis and optimization of embedded software. In this paper we provide an overview of our retargetable tool chain which consists of: a specification reader a disassembler a code analyzer and a functional simulator. Their capabilities, specific features and limitations are described in detail.  [PDF] </description>
     </item>
     
     <item>
       <title>Value-based source code specialization for energy reduction</title>
-      <link>/value-based-source-code-specialization-for-energy-reduction/</link>
+      <link>https://techvagabond.org/value-based-source-code-specialization-for-energy-reduction/</link>
       <pubDate>Wed, 04 Sep 2002 14:57:38 +0200</pubDate>
       
-      <guid>/value-based-source-code-specialization-for-energy-reduction/</guid>
+      <guid>https://techvagabond.org/value-based-source-code-specialization-for-energy-reduction/</guid>
       <description>Abstract: The objective of this research is to create a framework for energy optimization of software programs. In particular, this paper presents algorithms and a tool flow to reduce the computational effort of programs, using value profiling and partial evaluation. Such a reduction translates into both energy savings and performance improvement. Namely, our tool reduces computational effort by specializing a program for highly expected situations. Procedure calls which are frequently executed with same parameter values are defined as highly expected situations (common cases).</description>
     </item>
     
     <item>
       <title>Value-sensitive automatic code specialization for embedded software</title>
-      <link>/value-sensitive-automatic-code-specialization-for-embedded-software/</link>
+      <link>https://techvagabond.org/value-sensitive-automatic-code-specialization-for-embedded-software/</link>
       <pubDate>Sun, 04 Aug 2002 14:57:38 +0200</pubDate>
       
-      <guid>/value-sensitive-automatic-code-specialization-for-embedded-software/</guid>
+      <guid>https://techvagabond.org/value-sensitive-automatic-code-specialization-for-embedded-software/</guid>
       <description>Abstract: The objective of this work is to create a framework for the optimization of embedded software. We present algorithms and a tool flow to reduce the computational effort of programs, using value profiling and partial evaluation. Such a reduction translates into both energy savings and average-case performance improvement, while preserving a tolerable increase of worst case performance and code size. Our tool reduces the computational effort by specializing frequently executed procedures for the most common values of their parameters.</description>
     </item>
     
     <item>
       <title>Optimization of a retargetable functional simulator for embedded processors</title>
-      <link>/optimization-of-a-retargetable-functional-simulator-for-embedded-processors/</link>
+      <link>https://techvagabond.org/optimization-of-a-retargetable-functional-simulator-for-embedded-processors/</link>
       <pubDate>Thu, 04 Jul 2002 14:57:38 +0200</pubDate>
       
-      <guid>/optimization-of-a-retargetable-functional-simulator-for-embedded-processors/</guid>
+      <guid>https://techvagabond.org/optimization-of-a-retargetable-functional-simulator-for-embedded-processors/</guid>
       <description>Abstract: The objective of this research is to develop tools and methods for system-level optimization of embedded software that is executed on system-on-chip platforms. In particular, this paper proposes a new instruction-set simulator&#39;s tool flow which has been extended with some retargetability features and multiple program representations. We propose an innovative way to improve the simulation speed, that is a key factor for embedded software optimization, by using a synthesis approach.</description>
     </item>
     
     <item>
       <title>Analysis of DSP-kernel software by implicit cache simulation</title>
-      <link>/analysis-of-dsp-kernel-software-by-implicit-cache-simulation/</link>
+      <link>https://techvagabond.org/analysis-of-dsp-kernel-software-by-implicit-cache-simulation/</link>
       <pubDate>Tue, 04 Sep 2001 14:57:38 +0200</pubDate>
       
-      <guid>/analysis-of-dsp-kernel-software-by-implicit-cache-simulation/</guid>
+      <guid>https://techvagabond.org/analysis-of-dsp-kernel-software-by-implicit-cache-simulation/</guid>
       <description>Abstract: We introduce a new approach to performance analysis of DSP-kernel software, based on high-level abstractions, called implicit cache simulation. The method can take into account any kind of instruction cache as well as code allocation effects. We show that no loss of estimation accuracy is implied by the proposed abstractions. Moreover the speed of the method is such that it can be efficiently used as a system-level design tool. We compare implicit cache simulation with the trace-driven simulation approach, commonly used in industry.</description>
     </item>
     
     <item>
       <title>A software tool for the timing analysis of embedded software</title>
-      <link>/a-software-tool-for-the-timing-analysis-of-embedded-software/</link>
+      <link>https://techvagabond.org/a-software-tool-for-the-timing-analysis-of-embedded-software/</link>
       <pubDate>Sat, 09 Sep 2000 14:57:38 +0200</pubDate>
       
-      <guid>/a-software-tool-for-the-timing-analysis-of-embedded-software/</guid>
+      <guid>https://techvagabond.org/a-software-tool-for-the-timing-analysis-of-embedded-software/</guid>
       <description>Abstract: The presence of real-time software modules which interact with specific hardware architectures is growing in today&#39;s embedded applications. New methods and tools are needed for program analysis and the validation of these designs. The timing analysis of software is an essential aspect because real-time requirements need to be validated and because performance objectives could be missed if the software design does not fit with the hardware design. In this paper, we describe a new timing analysis for software which is executed on architectures with a one-level instruction cache.</description>
     </item>
     
     <item>
       <title>A fast procedure placement algorithm for optimal cache use</title>
-      <link>/a-fast-procedure-placement-algorithm-for-optimal-cache-use/</link>
+      <link>https://techvagabond.org/a-fast-procedure-placement-algorithm-for-optimal-cache-use/</link>
       <pubDate>Fri, 18 Sep 1998 14:57:38 +0200</pubDate>
       
-      <guid>/a-fast-procedure-placement-algorithm-for-optimal-cache-use/</guid>
+      <guid>https://techvagabond.org/a-fast-procedure-placement-algorithm-for-optimal-cache-use/</guid>
       <description>Abstract: We present a procedure placement method for embedded applications. We use the trace-driven simulation to collect information on the use of the cache line and then a heuristic algorithm to perform the placement. The main features of our method are a short computation time and a strong reduction of miss ratio. Experimental results shows an average miss rate reduction of 32%, but better improvements are obtained depending on the specific application.</description>
     </item>
     
     <item>
       <title>A cache-aware scheduling algorithm for embedded systems</title>
-      <link>/a-cache-aware-scheduling-algorithm-for-embedded-systems/</link>
+      <link>https://techvagabond.org/a-cache-aware-scheduling-algorithm-for-embedded-systems/</link>
       <pubDate>Thu, 04 Sep 1997 14:57:38 +0200</pubDate>
       
-      <guid>/a-cache-aware-scheduling-algorithm-for-embedded-systems/</guid>
+      <guid>https://techvagabond.org/a-cache-aware-scheduling-algorithm-for-embedded-systems/</guid>
       <description>Abstract: The paper presents a methodology for scheduling real time tasks in embedded systems where the task layout is known at design time and does not change at execution time (static systems) and where the cache miss costs are significant when compared to the normal execution time of the tasks. The scheduling model assumes a time driven dispatching of the application tasks which are ordered in a pre defined sequence. Building such a sequence in a way that is not only efficient but accounts for optimal cache sequencing is the aim of our method.</description>
     </item>
     

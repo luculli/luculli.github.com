@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cache Memory on Tech Vagabond!</title>
-    <link>/tags/cache-memory/</link>
+    <link>https://techvagabond.org/tags/cache-memory/</link>
     <description>Recent content in Cache Memory on Tech Vagabond!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 04 Sep 2001 14:57:38 +0200</lastBuildDate><atom:link href="/tags/cache-memory/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 04 Sep 2001 14:57:38 +0200</lastBuildDate><atom:link href="https://techvagabond.org/tags/cache-memory/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Analysis of DSP-kernel software by implicit cache simulation</title>
-      <link>/analysis-of-dsp-kernel-software-by-implicit-cache-simulation/</link>
+      <link>https://techvagabond.org/analysis-of-dsp-kernel-software-by-implicit-cache-simulation/</link>
       <pubDate>Tue, 04 Sep 2001 14:57:38 +0200</pubDate>
       
-      <guid>/analysis-of-dsp-kernel-software-by-implicit-cache-simulation/</guid>
+      <guid>https://techvagabond.org/analysis-of-dsp-kernel-software-by-implicit-cache-simulation/</guid>
       <description>Abstract: We introduce a new approach to performance analysis of DSP-kernel software, based on high-level abstractions, called implicit cache simulation. The method can take into account any kind of instruction cache as well as code allocation effects. We show that no loss of estimation accuracy is implied by the proposed abstractions. Moreover the speed of the method is such that it can be efficiently used as a system-level design tool. We compare implicit cache simulation with the trace-driven simulation approach, commonly used in industry.</description>
     </item>
     
     <item>
       <title>A cache-aware scheduling algorithm for embedded systems</title>
-      <link>/a-cache-aware-scheduling-algorithm-for-embedded-systems/</link>
+      <link>https://techvagabond.org/a-cache-aware-scheduling-algorithm-for-embedded-systems/</link>
       <pubDate>Thu, 04 Sep 1997 14:57:38 +0200</pubDate>
       
-      <guid>/a-cache-aware-scheduling-algorithm-for-embedded-systems/</guid>
+      <guid>https://techvagabond.org/a-cache-aware-scheduling-algorithm-for-embedded-systems/</guid>
       <description>Abstract: The paper presents a methodology for scheduling real time tasks in embedded systems where the task layout is known at design time and does not change at execution time (static systems) and where the cache miss costs are significant when compared to the normal execution time of the tasks. The scheduling model assumes a time driven dispatching of the application tasks which are ordered in a pre defined sequence. Building such a sequence in a way that is not only efficient but accounts for optimal cache sequencing is the aim of our method.</description>
     </item>
     

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-US" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>FLAC Decoder Benchmarking on ARM &middot; Tech Vagabond!</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://techvagabond.org/favicon.ico" />
+    <link rel="canonical" href="https://techvagabond.org/flac-decoder-benchmarking-on-arm/" />
+
+     <meta name="description" content="The purpose of this project was to design the HW/SW architecture of an innovative audio decoder for extremely high quality music. The main target was to be able" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://techvagabond.org/img/projects-flac/spek1.jpg"/>
+    
+ 
+    <meta name="twitter:title" content="FLAC Decoder Benchmarking on ARM"/>
+    <meta name="twitter:description" content="The purpose of this project was to design the HW/SW architecture of an innovative audio decoder for extremely high quality music. The main target was to be able"/>
+    <meta name="twitter:url" content="https://techvagabond.org/flac-decoder-benchmarking-on-arm/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Tech Vagabond!" />
+    <meta property="og:title" content="FLAC Decoder Benchmarking on ARM &middot; Gabriele LUCULLI&#39;s Web Page" />
+    <meta property="og:url" content="https://techvagabond.org/flac-decoder-benchmarking-on-arm/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="The purpose of this project was to design the HW/SW architecture of an innovative audio decoder for extremely high quality music. The main target was to be able" />
+
+    <meta property="article:published_time" content="0001-01-01T00:00:00Z" />
+    <meta property="article:tag" content="Technology" /><meta property="article:tag" content="Embedded Systems" />
+
+    <meta property="og:image" content="https://techvagabond.org/img/projects-flac/spek1.jpg"/>
+
+
+    <meta name="generator" content="Hugo 0.75.1" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/css/casper-two.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/css/overrides.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+     <link rel="stylesheet" href="https://techvagabond.org/css/overrides.css" /> 
+
+     
+
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+
+<body class="ctsingle">
+
+  <div class="site-wrapper"> 
+
+<header class="site-header outer "  style="background-image: url(https://techvagabond.org/img/mountains-sun.jpeg)"  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title"> Gabriele LUCULLI&#39;s Web Page  </h1>
+        <h2 class="site-description">Technology | Finance | Research | Engineering </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/papers/">Papers</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/projects/">Projects</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/blog/">Blog</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/luculli" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="https://techvagabond.org/flac-decoder-benchmarking-on-arm/">
+      <div class="post-card-image" style="background-image: url(https://techvagabond.org/img/projects-flac/spek1.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="https://techvagabond.org/flac-decoder-benchmarking-on-arm/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Technology 
+              #Embedded Systems  </span>
+              
+              <h2 class="post-card-title">FLAC Decoder Benchmarking on ARM</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <p>The purpose of this project was to design the HW/SW architecture of an innovative audio decoder for <strong>extremely high quality music</strong>. The main target was to be able to decode, and eventually to stream, several channels of music in lossless FLAC format with bit rate of several Mb/s. Just to have an idea of the target quality and complexity of such design is sufficient to remember that a standard MP3 audio file has a typical bit rate of 128 kb/s for a dual channel stereo, so well over 10X less than our objective.</p>
+<div class="image-center2">   
+    <img src="../img/projects-flac/rha_20120912_opus.png">
+</div>
+<p>We started by developing a baseline software solution for the FLAC decoder without the need of any hardware accelerators, then we decided to benchmark it on a typical baseline ARM architecture: ARM Cortex-A53 at 1.2Ghz in single-core configuration.</p>
+<p>The <a href="https://en.wikipedia.org/wiki/FLAC"> FLAC format </a>  is a lossless compression which supports from 4 to 24 bits per sample, sampling rate up to 655 khz and up 8 channels. Since our focus was extremely high quality music we decided to test only the high end of the FLAC format, we chose some available recording with sampling rate up to 96Khz, 24 bits per sample and up to 6 channels (5+1 surround). In particular, the benchmark set consisted of 6 very high quality recording with average bit rate from around 400 kb/se up to 7 Mb/s as it is reported in the following image.</p>
+<div class="image-center2">   
+    <img src="../img/projects-flac/bench-bitrate.png">
+</div>
+<p>The average bit rates and their distributions were computed by analyzing the audiogram like the ones in the picture. As we can see the frequency range is quite large, from 0 up to 48 khz in these samples, well over the typical frequencies of standard audio recording - hence the denomination of <strong>extremely high quality music</strong>. While several configuration of the same recording were generated by taking such high quality recording (96Khz, 24 bits, 6 channels) first and down-sampling and re-encoding it with the right parameters.</p>
+<div class="image-row"> 
+  <div class="image-column">
+     <img src="../img/projects-flac/spek1.jpg" style="width:100% centering">
+  </div>
+  <div class="image-column">  
+    <img src="../img/projects-flac/spek2.jpg" style="width:100% centering">
+  </div>
+</div>
+<p>The benchmarking started by testing the baseline configuration (2-44-16, first line of the previous table) resulting on extremely good performance of our HW/SW architecture: quite uniform throughput of around 116 Mb/s, low variability and therefore low latency toward the output audio interface, stable statistics and large available performance margin to decode our typical audio files.</p>
+<div class="image-center2">   
+    <img src="../img/projects-flac/baseline-stats.png" style="width:130% centering">
+</div>
+<p>Then, we tested the whole set of configurations in order to investigate the effect of higher <strong>encoding precision</strong>, increased <strong>sample rate</strong> and <strong>number of channels</strong> to decode. Improving the encoding precision from 16 to 24 bps didn&rsquo;t result on a relevant throughput reduction which was a good news to us since it meant that we could constantly provide high quality encoding without the need to add additional performance or to waste additional power consumption. Increasing the sampling rate produced a surprising increase of the throughput of the whole benchmark; after a detailed analysis this was essentially driven by the very effective memory architecture we adopted together with the optimization of buffers and code memory layouts we implemented.</p>
+<div class="image-row"> 
+  <div class="image-column">
+     <img src="../img/projects-flac/stats-2.png" style="width:100% centering">
+  </div>
+  <div class="image-column">  
+    <img src="../img/projects-flac/stats-1.png" style="width:100% centering">
+  </div>
+</div>
+<p>Instead, increasing the decoding channels from 2 to 6 had a very severe degradation of the throughput but this was expected, no surprise here, and it was almost linear. Overall, this was not a problem because we tested an ARM with a single core configuration but we could easily integrate a quad-core ARM and therefore to compensate for the throughput reduction.</p>
+<div class="image-center2">   
+    <img src="../img/projects-flac/stats-3.png" style="width:100% centering">
+</div>
+<p>The second phase of the benchmarking was a detailed analysis of throughput distributions. All the tested configurations had a similar shape, a dominant distribution mass around the average with a long tail for the worst-case throughput. This is considered generally bad from a decoding perspective because it could result in unwanted latency or lag. However, given the large margin we had between the decoding bit rate and the data bit rate, this has not been a problem for most of the configurations. The highest demanding configuration (6-96-24) was the only exception, because a worst-case margin of 3X (see picture) was estimated not safe enough to decoded the audio and to do all the additional required computations. That&rsquo;s why we opted for a final hardware architecture based on a dual core ARM.</p>
+<div class="image-center2">   
+    <img src="../img/projects-flac/stats-4.png" style="width:100% centering">
+</div>
+
+      </section>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="https://techvagabond.org/img/profile-picture-gl.jpg" alt="Author" />
+          <span class="post-card-author"><a href="/">Gabriele Luculli</a></span>
+      </footer>
+    </div>
+</article>
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+          <a class="newer-posts" href="/">&larr; <span class="hide">Next Post</span></a>
+      
+      <span class="page-number">&nbsp;</span>
+      
+          <a class="older-posts" href="/forecasting-profits-direction-in-a-dataset-of-cac40-trades/"><span class="hide">Previous Post</span> &rarr;</a>
+      
+    </nav>
+
+    
+    
+    
+
+  </div>
+</main>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a> v0.3.0 GL ©2020 - root@techvagabond.org <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/luculli" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://techvagabond.org/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+</body></html>

@@ -2,18 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Tech Vagabond!</title>
-    <link>/categories/projects/</link>
+    <link>https://techvagabond.org/categories/projects/</link>
     <description>Recent content in Projects on Tech Vagabond!</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <lastBuildDate>Fri, 04 Sep 2020 14:57:38 +0200</lastBuildDate><atom:link href="/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language><atom:link href="https://techvagabond.org/categories/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Trading platform</title>
-      <link>/trading-platform/</link>
-      <pubDate>Fri, 04 Sep 2020 14:57:38 +0200</pubDate>
+      <title>FLAC Decoder Benchmarking on ARM</title>
+      <link>https://techvagabond.org/flac-decoder-benchmarking-on-arm/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/trading-platform/</guid>
-      <description></description>
+      <guid>https://techvagabond.org/flac-decoder-benchmarking-on-arm/</guid>
+      <description>The purpose of this project was to design the HW/SW architecture of an innovative audio decoder for extremely high quality music. The main target was to be able to decode, and eventually to stream, several channels of music in lossless FLAC format with bit rate of several Mb/s. Just to have an idea of the target quality and complexity of such design is sufficient to remember that a standard MP3 audio file has a typical bit rate of 128 kb/s for a dual channel stereo, so well over 10X less than our objective.</description>
     </item>
     
   </channel>

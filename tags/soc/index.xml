@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SoC on Tech Vagabond!</title>
-    <link>/tags/soc/</link>
+    <link>https://techvagabond.org/tags/soc/</link>
     <description>Recent content in SoC on Tech Vagabond!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Mon, 04 Jan 2010 14:57:38 +0200</lastBuildDate><atom:link href="/tags/soc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jan 2010 14:57:38 +0200</lastBuildDate><atom:link href="https://techvagabond.org/tags/soc/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Interfacing of circuits in an integrated electronic circuit (US Patent 7,843,945)</title>
-      <link>/interfacing-of-circuits-in-an-integrated-electronic-circuit-us-patent-7843945/</link>
+      <link>https://techvagabond.org/interfacing-of-circuits-in-an-integrated-electronic-circuit-us-patent-7843945/</link>
       <pubDate>Mon, 04 Jan 2010 14:57:38 +0200</pubDate>
       
-      <guid>/interfacing-of-circuits-in-an-integrated-electronic-circuit-us-patent-7843945/</guid>
+      <guid>https://techvagabond.org/interfacing-of-circuits-in-an-integrated-electronic-circuit-us-patent-7843945/</guid>
       <description>An interface having internal conductors to transfer data between a sending circuit and a receiving circuit in an integrated electronic circuit, the receiving circuit including an input buffer capable of receiving data and an output terminal for sending to the sending circuit an item of extraction information on each extraction of a data word from the input buffer, and the sending circuit including an enable circuit capable of activating an enable signal according to an item of availability information representative of the memory space available in the input buffer.</description>
     </item>
     
     <item>
       <title>Generic development tools for embedded software design (US Patent App. 10/666,725)</title>
-      <link>/generic-development-tools-for-embedded-software-design-us-patent-app.-10/666725/</link>
+      <link>https://techvagabond.org/generic-development-tools-for-embedded-software-design-us-patent-app.-10/666725/</link>
       <pubDate>Tue, 04 Jan 2005 14:57:38 +0200</pubDate>
       
-      <guid>/generic-development-tools-for-embedded-software-design-us-patent-app.-10/666725/</guid>
+      <guid>https://techvagabond.org/generic-development-tools-for-embedded-software-design-us-patent-app.-10/666725/</guid>
       <description>Process for processing an executable embedded software code, said process comprising: reading an executable embedded code for one predetermined processor; extracting code sections from said executable embedded code; reading a file containing a description of a set of instructions for said predetermined processor, based on the concepts of TOKEN, FIELDS, ATTRIBUTES and CONSTRUCTORS of the SLED language, enriched with an additional CLASS definition grouping different instruction under a same label; and using said description in order to derive from said TOKEN, FIELDS, ATTRIBUTES, CONSTRUCTORS and CLASS an internal representation taking the form of a decision tree.</description>
     </item>
     

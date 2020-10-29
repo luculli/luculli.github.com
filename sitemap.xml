@@ -3,188 +3,183 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/categories/blog/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/finance/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/projects/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/technology/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/test/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/trading/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/trading-platform/</loc>
-    <lastmod>2020-09-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/tags/cybersecurity/</loc>
+    <loc>https://techvagabond.org/categories/</loc>
     <lastmod>2019-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/drone/</loc>
+    <loc>https://techvagabond.org/tags/cybersecurity/</loc>
     <lastmod>2019-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/methodology-for-risk-management-related-to-cyber-security-of-unmanned-aircraft-systems/</loc>
+    <loc>https://techvagabond.org/tags/drone/</loc>
     <lastmod>2019-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/categories/papers/</loc>
+    <loc>https://techvagabond.org/methodology-for-risk-management-related-to-cyber-security-of-unmanned-aircraft-systems/</loc>
     <lastmod>2019-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/patent/</loc>
+    <loc>https://techvagabond.org/categories/papers/</loc>
+    <lastmod>2019-01-04T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/post/</loc>
+    <lastmod>2019-01-04T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/tags/</loc>
+    <lastmod>2019-01-04T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/</loc>
+    <lastmod>2019-01-04T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/tags/technology/</loc>
+    <lastmod>2019-01-04T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/tags/finance/</loc>
     <lastmod>2013-03-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/patent-markets-efficiency-conditions-for-a-new-commodity-market/</loc>
+    <loc>https://techvagabond.org/tags/patent/</loc>
     <lastmod>2013-03-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/le-transfert-des-risques-sur-brevet-le-march%C3%A9-comme-solution-ultime/</loc>
+    <loc>https://techvagabond.org/patent-markets-efficiency-conditions-for-a-new-commodity-market/</loc>
+    <lastmod>2013-03-04T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/le-transfert-des-risques-sur-brevet-le-march%C3%A9-comme-solution-ultime/</loc>
     <lastmod>2013-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/interfacing-of-circuits-in-an-integrated-electronic-circuit-us-patent-7843945/</loc>
+    <loc>https://techvagabond.org/interfacing-of-circuits-in-an-integrated-electronic-circuit-us-patent-7843945/</loc>
     <lastmod>2010-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/soc/</loc>
+    <loc>https://techvagabond.org/tags/soc/</loc>
     <lastmod>2010-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/eda/</loc>
+    <loc>https://techvagabond.org/tags/eda/</loc>
     <lastmod>2005-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/embedded-systems/</loc>
+    <loc>https://techvagabond.org/tags/embedded-systems/</loc>
     <lastmod>2005-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/generic-development-tools-for-embedded-software-design-us-patent-app.-10/666725/</loc>
+    <loc>https://techvagabond.org/generic-development-tools-for-embedded-software-design-us-patent-app.-10/666725/</loc>
     <lastmod>2005-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/efficient-and-effective-simulation-of-memory-maps-for-system-on-chip/</loc>
+    <loc>https://techvagabond.org/efficient-and-effective-simulation-of-memory-maps-for-system-on-chip/</loc>
     <lastmod>2004-09-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/energy/</loc>
+    <loc>https://techvagabond.org/tags/energy/</loc>
     <lastmod>2004-09-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/flexible-simulation-of-memory-maps-for-embedded-systems/</loc>
+    <loc>https://techvagabond.org/flexible-simulation-of-memory-maps-for-embedded-systems/</loc>
     <lastmod>2004-09-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/an-isa-retargetable-framework-for-embedded-software-analysis/</loc>
+    <loc>https://techvagabond.org/an-isa-retargetable-framework-for-embedded-software-analysis/</loc>
     <lastmod>2003-01-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/value-based-source-code-specialization-for-energy-reduction/</loc>
+    <loc>https://techvagabond.org/value-based-source-code-specialization-for-energy-reduction/</loc>
     <lastmod>2002-09-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/value-sensitive-automatic-code-specialization-for-embedded-software/</loc>
+    <loc>https://techvagabond.org/value-sensitive-automatic-code-specialization-for-embedded-software/</loc>
     <lastmod>2002-08-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/optimization-of-a-retargetable-functional-simulator-for-embedded-processors/</loc>
+    <loc>https://techvagabond.org/optimization-of-a-retargetable-functional-simulator-for-embedded-processors/</loc>
     <lastmod>2002-07-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/retargetable-isa/</loc>
+    <loc>https://techvagabond.org/tags/retargetable-isa/</loc>
     <lastmod>2002-07-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/analysis-of-dsp-kernel-software-by-implicit-cache-simulation/</loc>
+    <loc>https://techvagabond.org/analysis-of-dsp-kernel-software-by-implicit-cache-simulation/</loc>
     <lastmod>2001-09-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/tags/cache-memory/</loc>
+    <loc>https://techvagabond.org/tags/cache-memory/</loc>
     <lastmod>2001-09-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/a-software-tool-for-the-timing-analysis-of-embedded-software/</loc>
+    <loc>https://techvagabond.org/a-software-tool-for-the-timing-analysis-of-embedded-software/</loc>
     <lastmod>2000-09-09T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/a-fast-procedure-placement-algorithm-for-optimal-cache-use/</loc>
+    <loc>https://techvagabond.org/a-fast-procedure-placement-algorithm-for-optimal-cache-use/</loc>
     <lastmod>1998-09-18T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/a-cache-aware-scheduling-algorithm-for-embedded-systems/</loc>
+    <loc>https://techvagabond.org/a-cache-aware-scheduling-algorithm-for-embedded-systems/</loc>
     <lastmod>1997-09-04T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>/</loc>
+    <loc>https://techvagabond.org/</loc>
     <lastmod>1900-01-04T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/categories/blog/</loc>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/flac-decoder-benchmarking-on-arm/</loc>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/forecasting-profits-direction-in-a-dataset-of-cac40-trades/</loc>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/tags/machine-learning/</loc>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/categories/projects/</loc>
   </url>
   
 </urlset>

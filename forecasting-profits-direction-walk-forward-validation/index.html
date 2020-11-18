@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en-US" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Forecasting Profits Direction: Walk-Forward Validation &middot; Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://techvagabond.org/favicon.ico" />
+    <link rel="canonical" href="https://techvagabond.org/forecasting-profits-direction-walk-forward-validation/" />
+
+     <meta name="description" content="In a previous post we developed a random forest model to forecast the direction of trades in a CAC40 dataset. Despite the fact that the training accuracy was ex" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://techvagabond.org/img/blog-wfp/trading-pres1.jpeg"/>
+    
+ 
+    <meta name="twitter:title" content="Forecasting Profits Direction: Walk-Forward Validation"/>
+    <meta name="twitter:description" content="In a previous post we developed a random forest model to forecast the direction of trades in a CAC40 dataset. Despite the fact that the training accuracy was ex"/>
+    <meta name="twitter:url" content="https://techvagabond.org/forecasting-profits-direction-walk-forward-validation/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page" />
+    <meta property="og:title" content="Forecasting Profits Direction: Walk-Forward Validation &middot; Gabriele LUCULLI&#39;s Web Page" />
+    <meta property="og:url" content="https://techvagabond.org/forecasting-profits-direction-walk-forward-validation/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="In a previous post we developed a random forest model to forecast the direction of trades in a CAC40 dataset. Despite the fact that the training accuracy was ex" />
+
+    <meta property="article:published_time" content="2020-10-28T14:57:38&#43;02:00" />
+    <meta property="article:tag" content="Technology" /><meta property="article:tag" content="Machine learning" /><meta property="article:tag" content="Finance" />
+
+    <meta property="og:image" content="https://techvagabond.org/img/blog-wfp/trading-pres1.jpeg"/>
+
+
+    <meta name="generator" content="Hugo 0.75.1" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/css/casper-two.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/css/overrides.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+     <link rel="stylesheet" href="https://techvagabond.org/css/overrides.css" /> 
+
+     
+
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+
+<body class="ctsingle">
+
+  <div class="site-wrapper"> 
+
+<header class="site-header outer "  style="background-image: url(https://techvagabond.org/img/mountains-sun.jpeg)"  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title"> Gabriele LUCULLI&#39;s Web Page  </h1>
+        <h2 class="site-description">Technology | Finance | Research | Engineering </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/papers/">Papers</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/projects/">Projects</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/blog/">Blog</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/luculli" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="https://techvagabond.org/forecasting-profits-direction-walk-forward-validation/">
+      <div class="post-card-image" style="background-image: url(https://techvagabond.org/img/blog-wfp/trading-pres1.jpeg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="https://techvagabond.org/forecasting-profits-direction-walk-forward-validation/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Technology 
+              #Machine learning 
+              #Finance  </span>
+              
+              <h2 class="post-card-title">Forecasting Profits Direction: Walk-Forward Validation</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
+<div class="text-abstract">   
+<p>In a <a href="https://techvagabond.org/forecasting-profits-direction-in-a-dataset-of-cac40-trades/">previous post</a>
+  we developed a random forest model to forecast the direction of trades in a CAC40 dataset. Despite the fact that the training accuracy was extremely high, the forecasting metrics resulted quite poor. Generally speaking, such kind of discrepancy is a clear evidence of overfitting in the learning process: the model is not able to generalize because it fitted too much with the training data.</p>
+<p>Of course, overfitting can be reduced by constraining the learning process and therefore trading an increase in its generalization capabilities for reduced training metrics - and this can be done in our case, for example, by constraining the number of generated trees in the random forest. However, this is not going to improve the forecasting metrics anyway. In addition, there is another source of overfitting in our specific case. A sequence of trades, day after day or week after week, can be seen as a time series when they come from the same strategy i.e. the trades are not statistically independent. So, applying a cross validation approach like we did in order to have a robust learning process, it will inevitably result on a misleading good learning metrics because we implicitly peaked some data into the future. Somehow we looked ahead by adopting the cross validation.</p>
+<p>A common approach to avoid such pitfall in time series training is to validate the training by a walk-forward splitting. The idea is simple, first we need to order our trades dataset by a time tag (which by the way is already present having day/hour fields) then we can split it according to a defined proportion and to apply our training /validation process in a sequence of train/test subsets like reported in the following picture. Eventually, a rolling windows can be considered if we don&rsquo;t want to have an increasing training set.</p>
+<div class="image-center2">   
+    <img src="../img/blog-wfp/wf-validation.png">
+</div>
+<p>The following procedure <strong>createDataPartitionWT()</strong> takes a vector of time tags <strong>y</strong> and it returns a set of train and test sets according to the walk-through splitting approach.</p>
+<div class="text-code-r"> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> createDataPartitionWT <span style="color:#f92672">=</span> <span style="color:#a6e22e">function</span>(y, p<span style="color:#f92672">=</span><span style="color:#ae81ff">0.75</span>) {
+    <span style="color:#75715e"># save original data tag sequence</span>
+    dt <span style="color:#f92672">=</span> <span style="color:#a6e22e">data.frame</span>(id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#f92672">:</span><span style="color:#a6e22e">length</span>(y), data<span style="color:#f92672">=</span>y);
+
+    <span style="color:#75715e"># train/test sets size</span>
+    ns <span style="color:#f92672">=</span> <span style="color:#a6e22e">length</span>(<span style="color:#a6e22e">unique</span>(y));
+    ns_train <span style="color:#f92672">=</span> <span style="color:#a6e22e">max</span>(<span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">trunc</span>(ns<span style="color:#f92672">*</span>p)); ns_test <span style="color:#f92672">=</span> ns<span style="color:#f92672">-</span>ns_train;
+
+    <span style="color:#a6e22e">if </span>(ns_test <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1</span>) <span style="color:#a6e22e">stop</span>(<span style="color:#e6db74">&#34;Error, not enough unique time tags to split!\n&#34;</span>);
+
+    <span style="color:#75715e"># order the time tags and partition it into ns sets</span>
+    dt_ord <span style="color:#f92672">=</span> dt<span style="color:#a6e22e">[order</span>(dt<span style="color:#f92672">$</span>data), ]; dt_ord<span style="color:#f92672">$</span>slot<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>;
+    dt_un <span style="color:#f92672">=</span> <span style="color:#a6e22e">unique</span>(y);
+    <span style="color:#a6e22e">for</span>( k in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>ns) { idx <span style="color:#f92672">=</span> <span style="color:#a6e22e">which</span>(dt_ord<span style="color:#f92672">$</span>data <span style="color:#f92672">==</span> dt_un[k]); dt_ord<span style="color:#f92672">$</span>slot[idx] <span style="color:#f92672">=</span> k; }
+
+    <span style="color:#75715e"># create ns_test train and test sets by rolling window</span>
+    train<span style="color:#f92672">=</span><span style="color:#a6e22e">list</span>(); test<span style="color:#f92672">=</span><span style="color:#a6e22e">list</span>();
+    <span style="color:#a6e22e">for</span>(k in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>ns_test) {
+        idx <span style="color:#f92672">=</span> <span style="color:#a6e22e">which</span>((dt_ord<span style="color:#f92672">$</span>slot <span style="color:#f92672">&lt;=</span> ns_train<span style="color:#f92672">+</span>k<span style="color:#ae81ff">-1</span>) <span style="color:#f92672">&amp;</span> (dt_ord<span style="color:#f92672">$</span>slot <span style="color:#f92672">&gt;=</span> k));
+        train[[k]] <span style="color:#f92672">=</span> dt_ord<span style="color:#f92672">$</span>id[idx];
+
+        idx <span style="color:#f92672">=</span> <span style="color:#a6e22e">which</span>(dt_ord<span style="color:#f92672">$</span>slot <span style="color:#f92672">==</span> ns_train<span style="color:#f92672">+</span>k);
+        test[[k]] <span style="color:#f92672">=</span> dt_ord<span style="color:#f92672">$</span>id[idx];
+    }
+
+    <span style="color:#a6e22e">return</span>(<span style="color:#a6e22e">list</span>(num<span style="color:#f92672">=</span>ns_test, train<span style="color:#f92672">=</span>train, test<span style="color:#f92672">=</span>test));
+}
+
+</code></pre></div></div>
+<p>Compared to our previous post where we adopted a bare rf model, now we need to use a set of rf models because we have a set of train/test set instead of a single one. Therefore, we are going to adopt what is called an <strong>ensemble method</strong> in machine learning: multiple models are trained on the same initial dataset at first, then forecasting is based on combination of their multiple predictions. In our case, all the adopted models are rf and, since we are interested to the classification of trades, forecasted results can be combined either by majority of results or by averaging their probabilities.</p>
+<div class="text-code-r"> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#75715e"># splitting training and testing dataset</span>
+ part <span style="color:#f92672">=</span> <span style="color:#a6e22e">createDataPartitionWT</span>(y <span style="color:#f92672">=</span> data<span style="color:#f92672">$</span>dstart, p <span style="color:#f92672">=</span> <span style="color:#ae81ff">.75</span>); 
+
+ <span style="color:#75715e"># training ensemble rf models</span>
+ rfFit <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>();
+ <span style="color:#a6e22e">for</span>(k in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>part<span style="color:#f92672">$</span>num) {
+    training <span style="color:#f92672">=</span> data[part<span style="color:#f92672">$</span>train[[k]], fset];
+
+    <span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">567</span>);
+    ctrl <span style="color:#f92672">=</span> <span style="color:#a6e22e">trainControl</span>(method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;oob&#34;</span>,  classProbs <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, savePredictions <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;all&#34;</span>);
+    rfFit[[k]] <span style="color:#f92672">=</span> caret<span style="color:#f92672">::</span><span style="color:#a6e22e">train</span>(class <span style="color:#f92672">~</span> ., data <span style="color:#f92672">=</span> training, method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rf&#34;</span>, preProc <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;center&#34;</span>, <span style="color:#e6db74">&#34;scale&#34;</span>),  tuneLength <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>, maxnodes<span style="color:#f92672">=</span><span style="color:#ae81ff">50</span>, trControl <span style="color:#f92672">=</span> ctrl, allowParallel<span style="color:#f92672">=</span>T);
+ }
+
+</code></pre></div></div>
+<p>The cumulative plot ROC shows us that the classification is far from be perfect, as instead we wrongly supposed to be in the original post. This is obviously not a good news but it showed us that overfitting was a true issue in the previous case and the real accuracy was well lower than 0.9967. It is also interesting to know that it is possible to have an estimation of the ROC of the ensemble classifier simply by computing the convex hull of such cumulative plot ROC in the case of a binary classifier, yet this is only a conservative estimation (see <a href="https://papers.nips.cc/paper/3263-optimal-roc-curve-for-a-combination-of-classifiers.pdf"> the paper </a>from M. Barreno).</p>
+<div class="image-center2"> 
+   <img src="../img/blog-wfp/ensemble-roc.jpeg">
+</div>
+<p>Finally, we can asses the performance of this new model on the <em>verif</em> dataset and to check both its CM nd ROC plot (red color, blue color is the previous one). Unfortunately, the results are extremely similar to what we get in the previous post, no major improvement in AUC neither in sensitivity or specificity.</p>
+<div class="text-code-r"> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#75715e"># forecasting based on majority</span>
+ <span style="color:#75715e"># -------------------------------------------------------------------------------------------</span>
+ rfProbs <span style="color:#f92672">=</span> <span style="color:#a6e22e">matrix</span>(, nrow <span style="color:#f92672">=</span> <span style="color:#a6e22e">dim</span>(verif)[1], ncol <span style="color:#f92672">=</span> part<span style="color:#f92672">$</span>num)
+ <span style="color:#a6e22e">for</span>(k in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>part<span style="color:#f92672">$</span>num) {
+    rfProbs[,k] <span style="color:#f92672">=</span> <span style="color:#a6e22e">predict</span>(rfFit[[k]], newdata <span style="color:#f92672">=</span> verif[, <span style="color:#f92672">-</span><span style="color:#a6e22e">ncol</span>(verif)], type <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;prob&#34;</span>)[,<span style="color:#ae81ff">2</span>];
+ }
+ 
+ <span style="color:#75715e"># classification by majority - standard threshold</span>
+ rfClasses <span style="color:#f92672">=</span> <span style="color:#a6e22e">rep</span>(<span style="color:#e6db74">&#34;N&#34;</span>, <span style="color:#a6e22e">dim</span>(verif)[1]);
+ rfClasses<span style="color:#a6e22e">[which</span>(<span style="color:#a6e22e">rowMeans</span>(rfProbs) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0.5</span>)] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;P&#34;</span>;
+ rfClasses <span style="color:#f92672">=</span> <span style="color:#a6e22e">factor</span>(rfClasses, levels<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;N&#34;</span>, <span style="color:#e6db74">&#34;P&#34;</span>), labels<span style="color:#f92672">=</span><span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;N&#34;</span>, <span style="color:#e6db74">&#34;P&#34;</span>)); 
+ 
+ CM <span style="color:#f92672">=</span> caret<span style="color:#f92672">::</span><span style="color:#a6e22e">confusionMatrix</span>(rfClasses, verif<span style="color:#f92672">$</span>class, positive<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;P&#34;</span>); 
+
+ ROC <span style="color:#f92672">=</span> <span style="color:#a6e22e">roc</span>(response <span style="color:#f92672">=</span> verif<span style="color:#f92672">$</span>class, predictor <span style="color:#f92672">=</span> <span style="color:#a6e22e">rowMeans</span>(rfProbs), levels <span style="color:#f92672">=</span> <span style="color:#a6e22e">rev</span>(<span style="color:#a6e22e">levels</span>(verif<span style="color:#f92672">$</span>class)));
+ <span style="color:#a6e22e">plot</span>(ROC, lwd<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>, main<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ROC Plot (verif dataset)&#34;</span>); <span style="color:#a6e22e">grid</span>(); <span style="color:#a6e22e">auc</span>(ROC);
+
+</code></pre></div></div>
+<div class="image-row"> 
+  <div class="image-column">
+    <div class="text-code-r" style="width:80% "> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#75715e"># verif results: CM</span>
+ Confusion Matrix and Statistics
+
+          Reference
+ Prediction  N  P
+          N <span style="color:#ae81ff">10</span> <span style="color:#ae81ff">10</span>
+          P  <span style="color:#ae81ff">2</span>  <span style="color:#ae81ff">4</span>
+                                          
+               Accuracy <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.5385</span>          
+                 <span style="color:#ae81ff">95</span>% CI <span style="color:#f92672">:</span> (<span style="color:#ae81ff">0.3337</span>, <span style="color:#ae81ff">0.7341</span>)
+    No Information Rate <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.5385</span>          
+    P<span style="color:#f92672">-</span>Value [Acc <span style="color:#f92672">&gt;</span> NIR] <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.57965</span>         
+                                          
+                  Kappa <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.1136</span>          
+                                          
+ Mcnemar<span style="color:#e6db74">&#39;s Test P-Value : 0.04331         
+</span><span style="color:#e6db74">                                          
+</span><span style="color:#e6db74">            Sensitivity : 0.2857          
+</span><span style="color:#e6db74">            Specificity : 0.8333          
+</span><span style="color:#e6db74">         Pos Pred Value : 0.6667          
+</span><span style="color:#e6db74">         Neg Pred Value : 0.5000          
+</span><span style="color:#e6db74">             Prevalence : 0.5385          
+</span><span style="color:#e6db74">         Detection Rate : 0.1538          
+</span><span style="color:#e6db74">   Detection Prevalence : 0.2308          
+</span><span style="color:#e6db74">      Balanced Accuracy : 0.5595          
+</span><span style="color:#e6db74">                                          
+</span><span style="color:#e6db74">       &#39;</span>Positive<span style="color:#e6db74">&#39;</span><span style="color:#960050;background-color:#1e0010"> Class : P               </span>
+
+ <span style="color:#a6e22e">auc</span>(ROC);
+ Area under the curve<span style="color:#f92672">:</span> <span style="color:#ae81ff">0.6339</span>
+</code></pre></div></div>
+  </div>
+  <div class="image-column">  
+    <img src="../img/blog-wfp/verif-roc.jpeg" style="width:110% centering">
+  </div>
+</div>
+<p>If we compute the expected cumulative pnl for the coming week we will get 7 CAC40 points which is somehow in the middle between what we got in the previous post (1 CAC40 point for the standard threshold of 0.5 and 75 CAC40 point for the optimal threshold of 0.354) but still far from the optimal value. So, a little better result nut nothing special!</p>
+<div class="image-center2"> 
+   <img src="../img/blog-wfp/pnl-exp.jpeg">
+</div>
+</div>
+      </section>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="https://techvagabond.org/img/profile-picture-gl.jpg" alt="Author" />
+          <span class="post-card-author"><a href="/">Gabriele Luculli</a></span>
+      </footer>
+    </div>
+</article>
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+          <a class="newer-posts" href="/forecasting-profits-direction-logistic-model/">&larr; <span class="hide">Next Post</span></a>
+      
+      <span class="page-number">&nbsp;</span>
+      
+          <a class="older-posts" href="/methodology-for-risk-management-related-to-cyber-security-of-unmanned-aircraft-systems/"><span class="hide">Previous Post</span> &rarr;</a>
+      
+    </nav>
+
+    
+    
+    
+
+  </div>
+</main>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a> v0.4.0 - Nov/2020 - GL ©2020 - root@techvagabond.org <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/luculli" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://techvagabond.org/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+</body></html>

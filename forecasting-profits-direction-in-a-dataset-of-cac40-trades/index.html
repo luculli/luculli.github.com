@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 
-    <title>Forecasting Profits Direction in a Dataset of CAC40 Trades &middot; Tech Vagabond!</title>
+    <title>Forecasting Profits Direction in a Dataset of CAC40 Trades &middot; Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page</title>
 
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -25,7 +25,7 @@
     <meta name="twitter:url" content="https://techvagabond.org/forecasting-profits-direction-in-a-dataset-of-cac40-trades/" />
     <meta name="twitter:site" content="@"/>
 
-    <meta property="og:site_name" content="Tech Vagabond!" />
+    <meta property="og:site_name" content="Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page" />
     <meta property="og:title" content="Forecasting Profits Direction in a Dataset of CAC40 Trades &middot; Gabriele LUCULLI&#39;s Web Page" />
     <meta property="og:url" content="https://techvagabond.org/forecasting-profits-direction-in-a-dataset-of-cac40-trades/" />
     
@@ -230,7 +230,7 @@
     <img src="../img/blog-fpd/feat-corr2.png" style="width:90%">
   </div>
 </div>
-<p>We will start considering a random forest model. Data is partitioned in two sets, one for training and one of testing. Training is done by the caret package. Many options can be selected, we opted for repeated cross validation in order to have a robust fitting and ROC as key metric for the loss function.</p>
+<p>We will start considering a random forest model. Data is partitioned in two sets, one for training and one for testing. Training is done by the caret package. Many options can be selected, we opted for repeated cross validation in order to have a robust fitting and ROC as key metric for the loss function.</p>
 <div class="text-code-r"> 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#75715e"># training RF model</span>
  <span style="color:#a6e22e">library</span>(caret)
@@ -296,7 +296,7 @@
  <span style="color:#a6e22e">plot</span>(ROC, lwd<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>, col<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;red&#34;</span>); <span style="color:#a6e22e">auc</span>(ROC);
 
 </code></pre></div></div>
-<p>The results of testing are extremely similar to the metrics of the training, so conforting us on the good quality of model. Even the ROC plot looks so good that it is almost incredible. Unfortunately, as it is often in life, such result is too good to be true ! It will be sufficient to apply our model to the predictions of the actual days in order to discover that accuracy, sensitivity and any other possible metric are in fact much worse than the predicted ones. We are in a typical case of overfitting!</p>
+<p>The results of testing are extremely similar to the metrics of the training, so confronting us on the good quality of model. Even the ROC plot looks so good that it is almost incredible. Unfortunately, as it is often in life, such result is too good to be true ! It will be sufficient to apply our model to the predictions of the actual days in order to discover that accuracy, sensitivity and any other possible metric are in fact much worse than the predicted ones. We are in a typical case of overfitting!</p>
 <div class="image-row"> 
   <div class="image-column">
     <div class="text-code-r" style="width:80% "> 
@@ -372,39 +372,39 @@
 Confusion Matrix and Statistics
 
           Reference
-Prediction   N   P
-         N <span style="color:#ae81ff">211</span> <span style="color:#ae81ff">266</span>
-         P <span style="color:#ae81ff">153</span> <span style="color:#ae81ff">332</span>
+Prediction N P
+         N <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">7</span>
+         P <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">7</span>
                                           
-               Accuracy <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.5644</span>          
-                 <span style="color:#ae81ff">95</span>% CI <span style="color:#f92672">:</span> (<span style="color:#ae81ff">0.5324</span>, <span style="color:#ae81ff">0.5961</span>)
-    No Information Rate <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.6216</span>          
-    P<span style="color:#f92672">-</span>Value [Acc <span style="color:#f92672">&gt;</span> NIR] <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.9999</span>          
+               Accuracy <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.5385</span>          
+                 <span style="color:#ae81ff">95</span>% CI <span style="color:#f92672">:</span> (<span style="color:#ae81ff">0.3337</span>, <span style="color:#ae81ff">0.7341</span>)
+    No Information Rate <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.5385</span>          
+    P<span style="color:#f92672">-</span>Value [Acc <span style="color:#f92672">&gt;</span> NIR] <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.5796</span>          
                                           
-                  Kappa <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.1271</span>          
+                  Kappa <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.0824</span>          
                                           
- Mcnemar<span style="color:#e6db74">&#39;s Test P-Value : 4.461e-08       
+ Mcnemar<span style="color:#e6db74">&#39;s Test P-Value : 0.7728          
 </span><span style="color:#e6db74">                                          
-</span><span style="color:#e6db74">            Sensitivity : 0.5552          
-</span><span style="color:#e6db74">            Specificity : 0.5797          
-</span><span style="color:#e6db74">         Pos Pred Value : 0.6845          
-</span><span style="color:#e6db74">         Neg Pred Value : 0.4423          
-</span><span style="color:#e6db74">             Prevalence : 0.6216          
-</span><span style="color:#e6db74">         Detection Rate : 0.3451          
-</span><span style="color:#e6db74">   Detection Prevalence : 0.5042          
-</span><span style="color:#e6db74">      Balanced Accuracy : 0.5674          
+</span><span style="color:#e6db74">            Sensitivity : 0.5000          
+</span><span style="color:#e6db74">            Specificity : 0.5833          
+</span><span style="color:#e6db74">         Pos Pred Value : 0.5833          
+</span><span style="color:#e6db74">         Neg Pred Value : 0.5000          
+</span><span style="color:#e6db74">             Prevalence : 0.5385          
+</span><span style="color:#e6db74">         Detection Rate : 0.2692          
+</span><span style="color:#e6db74">   Detection Prevalence : 0.4615          
+</span><span style="color:#e6db74">      Balanced Accuracy : 0.5417          
 </span><span style="color:#e6db74">                                          
-</span><span style="color:#e6db74">       &#39;</span>Positive<span style="color:#e6db74">&#39;</span><span style="color:#960050;background-color:#1e0010"> Class : P                    </span>
+</span><span style="color:#e6db74">       &#39;</span>Positive<span style="color:#e6db74">&#39;</span><span style="color:#960050;background-color:#1e0010"> Class : P                     </span>
 
 <span style="color:#a6e22e">auc</span>(ROC);
-Area under the curve<span style="color:#f92672">:</span> <span style="color:#ae81ff">0.6424</span>
+Area under the curve<span style="color:#f92672">:</span> <span style="color:#ae81ff">0.6815</span>
 </code></pre></div></div>
   </div>
   <div class="image-column">  
-    <img src="../img/blog-fpd/verif-roc.jpg" style="width:110% centering">
+    <img src="../img/blog-fpd/verif-roc.jpeg" style="width:110% centering">
   </div>
 </div>
-<p>Unfortunately the predictions of the rfFit model to the verif dataset are not very good, the ROC plot has an AUC of 0.64 which basically means that the model has limited capacity to distinguish between positive class and negative class. In fact, it is only marginally better than a random discriminator. Therefore it is not possible to predict in a safe way wheather a new transaction is going to produce a profit or a loss.</p>
+<p>Unfortunately the predictions of the rfFit model to the verif dataset are not very good, the ROC plot has an AUC of 0.68 which basically means that the model has limited capacity to distinguish between positive class and negative class. In fact, it is only marginally better than a random discriminator. Therefore it is not possible to predict in a safe way whether a new transaction is going to produce a profit or a loss.</p>
 <p>Still, it is possible to gain some marginal improvement of such classification by changing the probability threshold used to discriminate between P and N classes. Instead of adopting the default value of 0.5, we can look for the optimal value which will result on an higher accuracy and sensitivity/specificity. Such optimal value can be computed by detecting on the ROC plot the nearest point to the corner (1.0, 1.0).</p>
 <div class="text-code-r"> 
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#75715e"># computing optimal threshold on verif</span>
@@ -416,7 +416,7 @@ Area under the curve<span style="color:#f92672">:</span> <span style="color:#ae8
  CM <span style="color:#f92672">=</span> caret<span style="color:#f92672">::</span><span style="color:#a6e22e">confusionMatrix</span>(<span style="color:#a6e22e">table</span>(rfProbs[, <span style="color:#e6db74">&#34;P&#34;</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0.354</span>, verif<span style="color:#f92672">$</span>class <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;P&#34;</span>), positive<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;TRUE&#34;</span>)
 
 </code></pre></div></div>
-<p>By computing the point at minimal distance, green point in the following figure, we get an optimal threshold of 0.354. The new CM is the following one where we can see the performaance metrics are quite inproved.</p>
+<p>By computing the point at minimal distance, green point in the following figure, we get an optimal threshold of 0.354. The new CM is the following one where we can see the performance metrics are quite improved.</p>
 <div class="image-row"> 
   <div class="image-column">
     <div class="text-code-r" style="width:80% "> 
@@ -425,26 +425,26 @@ Confusion Matrix and Statistics
 
        
         <span style="color:#66d9ef">FALSE</span> <span style="color:#66d9ef">TRUE</span>
-  <span style="color:#66d9ef">FALSE</span>   <span style="color:#ae81ff">187</span>  <span style="color:#ae81ff">177</span>
-  <span style="color:#66d9ef">TRUE</span>    <span style="color:#ae81ff">121</span>  <span style="color:#ae81ff">477</span>
+  <span style="color:#66d9ef">FALSE</span>     <span style="color:#ae81ff">7</span>    <span style="color:#ae81ff">3</span>
+  <span style="color:#66d9ef">TRUE</span>      <span style="color:#ae81ff">5</span>   <span style="color:#ae81ff">11</span>
                                           
-               Accuracy <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.6902</span>          
-                 <span style="color:#ae81ff">95</span>% CI <span style="color:#f92672">:</span> (<span style="color:#ae81ff">0.6599</span>, <span style="color:#ae81ff">0.7193</span>)
-    No Information Rate <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.6798</span>          
-    P<span style="color:#f92672">-</span>Value [Acc <span style="color:#f92672">&gt;</span> NIR] <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.256515</span>        
+               Accuracy <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.6923</span>          
+                 <span style="color:#ae81ff">95</span>% CI <span style="color:#f92672">:</span> (<span style="color:#ae81ff">0.4821</span>, <span style="color:#ae81ff">0.8567</span>)
+    No Information Rate <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.5385</span>          
+    P<span style="color:#f92672">-</span>Value [Acc <span style="color:#f92672">&gt;</span> NIR] <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.08294</span>         
                                           
-                  Kappa <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.3211</span>          
+                  Kappa <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.3735</span>          
                                           
- Mcnemar<span style="color:#e6db74">&#39;s Test P-Value : 0.001442        
+ Mcnemar<span style="color:#e6db74">&#39;s Test P-Value : 0.72367         
 </span><span style="color:#e6db74">                                          
-</span><span style="color:#e6db74">            Sensitivity : 0.7294          
-</span><span style="color:#e6db74">            Specificity : 0.6071          
-</span><span style="color:#e6db74">         Pos Pred Value : 0.7977          
-</span><span style="color:#e6db74">         Neg Pred Value : 0.5137          
-</span><span style="color:#e6db74">             Prevalence : 0.6798          
-</span><span style="color:#e6db74">         Detection Rate : 0.4958          
-</span><span style="color:#e6db74">   Detection Prevalence : 0.6216          
-</span><span style="color:#e6db74">      Balanced Accuracy : 0.6683          
+</span><span style="color:#e6db74">            Sensitivity : 0.7857          
+</span><span style="color:#e6db74">            Specificity : 0.5833          
+</span><span style="color:#e6db74">         Pos Pred Value : 0.6875          
+</span><span style="color:#e6db74">         Neg Pred Value : 0.7000          
+</span><span style="color:#e6db74">             Prevalence : 0.5385          
+</span><span style="color:#e6db74">         Detection Rate : 0.4231          
+</span><span style="color:#e6db74">   Detection Prevalence : 0.6154          
+</span><span style="color:#e6db74">      Balanced Accuracy : 0.6845          
 </span><span style="color:#e6db74">                                          
 </span><span style="color:#e6db74">       &#39;</span>Positive<span style="color:#e6db74">&#39;</span><span style="color:#960050;background-color:#1e0010"> Class : TRUE          </span>
 
@@ -460,7 +460,7 @@ Area under the curve<span style="color:#f92672">:</span> <span style="color:#ae8
  <div class="">  
     <img src="../img/blog-fpd/weekly-pnl2.jpg" style="width:100% centering">
  </div>
-<p>Now, the good choice of the threshold seems to be essential to select a winning strategy. Unfortunately, the approach we adopted to compute the optimal threshold cannot be applied in the practice because we exploited the posteriori knowledge of trade results in our computation.  However, the intuition that the choice of a good threshold can be sufficient to provide a positive pnl even when the forecasting model has somehow limited forecasting capailities like in our case, it is an interesting fact.</p>
+<p>Now, the good choice of the threshold seems to be essential to select a winning strategy. Unfortunately, the approach we adopted to compute the optimal threshold cannot be applied in the practice because we exploited the posterior knowledge of trade results in our computation.  However, the intuition that the choice of a good threshold can be sufficient to provide a positive pnl even when the forecasting model has somehow limited forecasting capabilities like in our case, it is an interesting fact.</p>
 </div>
 
       </section>
@@ -493,7 +493,7 @@ Area under the curve<span style="color:#f92672">:</span> <span style="color:#ae8
 <footer class="site-footer outer">
   <div class="site-footer-content inner">
     <section class="copyright" style="line-height: 1.3em;">
-      <a href="/"></a> v0.3.0 GL ©2020 - root@techvagabond.org <br>
+      <a href="/"></a> v0.4.0 - Nov/2020 - GL ©2020 - root@techvagabond.org <br>
       
     </section>
     <nav class="site-footer-nav">

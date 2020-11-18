@@ -1,11 +1,32 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Blog on Tech Vagabond!</title>
+    <title>Blog on Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page</title>
     <link>https://techvagabond.org/categories/blog/</link>
-    <description>Recent content in Blog on Tech Vagabond!</description>
+    <description>Recent content in Blog on Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language><atom:link href="https://techvagabond.org/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>Tue, 17 Nov 2020 14:57:38 +0200</lastBuildDate><atom:link href="https://techvagabond.org/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Forecasting Profits Direction: Logistic Model</title>
+      <link>https://techvagabond.org/forecasting-profits-direction-logistic-model/</link>
+      <pubDate>Tue, 17 Nov 2020 14:57:38 +0200</pubDate>
+      
+      <guid>https://techvagabond.org/forecasting-profits-direction-logistic-model/</guid>
+      <description>In the previous posts we developed a random forest model and walk-forward validation approach to forecast the direction of trades in a CAC40 dataset. Here we investigate the adoption of a logistic model instead of random forests. Since we still adopt a walk-forward validation, we will actually adopt an ensemble of logistic models, one for each of the walk-forward splitting.
+Logistic modeling is quite common in binary classification problems, it is based on simple math which extends the linear regression approach, it has a nice bayesian interpretation and it can be seen as a single-layer perceptron so a first step in the world of neural networks and deep learning.</description>
+    </item>
+    
+    <item>
+      <title>Forecasting Profits Direction: Walk-Forward Validation</title>
+      <link>https://techvagabond.org/forecasting-profits-direction-walk-forward-validation/</link>
+      <pubDate>Wed, 28 Oct 2020 14:57:38 +0200</pubDate>
+      
+      <guid>https://techvagabond.org/forecasting-profits-direction-walk-forward-validation/</guid>
+      <description>In a previous post we developed a random forest model to forecast the direction of trades in a CAC40 dataset. Despite the fact that the training accuracy was extremely high, the forecasting metrics resulted quite poor. Generally speaking, such kind of discrepancy is a clear evidence of overfitting in the learning process: the model is not able to generalize because it fitted too much with the training data.
+Of course, overfitting can be reduced by constraining the learning process and therefore trading an increase in its generalization capabilities for reduced training metrics - and this can be done in our case, for example, by constraining the number of generated trees in the random forest.</description>
+    </item>
+    
     <item>
       <title>Forecasting Profits Direction in a Dataset of CAC40 Trades</title>
       <link>https://techvagabond.org/forecasting-profits-direction-in-a-dataset-of-cac40-trades/</link>

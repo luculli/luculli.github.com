@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-US" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Forecasting Profits Direction: Logistic Model &middot; Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://techvagabond.org/favicon.ico" />
+    <link rel="canonical" href="https://techvagabond.org/forecasting-profits-direction-logistic-model/" />
+
+     <meta name="description" content="In the previous posts we developed a random forest model and walk-forward validation approach to forecast the direction of trades in a CAC40 dataset. Here we in" /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://techvagabond.org/img/blog-wf-logit/logit-binary.jpg"/>
+    
+ 
+    <meta name="twitter:title" content="Forecasting Profits Direction: Logistic Model"/>
+    <meta name="twitter:description" content="In the previous posts we developed a random forest model and walk-forward validation approach to forecast the direction of trades in a CAC40 dataset. Here we in"/>
+    <meta name="twitter:url" content="https://techvagabond.org/forecasting-profits-direction-logistic-model/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page" />
+    <meta property="og:title" content="Forecasting Profits Direction: Logistic Model &middot; Gabriele LUCULLI&#39;s Web Page" />
+    <meta property="og:url" content="https://techvagabond.org/forecasting-profits-direction-logistic-model/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="In the previous posts we developed a random forest model and walk-forward validation approach to forecast the direction of trades in a CAC40 dataset. Here we in" />
+
+    <meta property="article:published_time" content="2020-11-17T14:57:38&#43;02:00" />
+    <meta property="article:tag" content="Technology" /><meta property="article:tag" content="Machine learning" /><meta property="article:tag" content="Finance" />
+
+    <meta property="og:image" content="https://techvagabond.org/img/blog-wf-logit/logit-binary.jpg"/>
+
+
+    <meta name="generator" content="Hugo 0.75.1" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/css/casper-two.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/css/overrides.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+     <link rel="stylesheet" href="https://techvagabond.org/css/overrides.css" /> 
+
+     
+
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+
+<body class="ctsingle">
+
+  <div class="site-wrapper"> 
+
+<header class="site-header outer "  style="background-image: url(https://techvagabond.org/img/mountains-sun.jpeg)"  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title"> Gabriele LUCULLI&#39;s Web Page  </h1>
+        <h2 class="site-description">Technology | Finance | Research | Engineering </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/papers/">Papers</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/projects/">Projects</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/blog/">Blog</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/luculli" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="https://techvagabond.org/forecasting-profits-direction-logistic-model/">
+      <div class="post-card-image" style="background-image: url(https://techvagabond.org/img/blog-wf-logit/logit-binary.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="https://techvagabond.org/forecasting-profits-direction-logistic-model/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Technology 
+              #Machine learning 
+              #Finance  </span>
+              
+              <h2 class="post-card-title">Forecasting Profits Direction: Logistic Model</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
+<div class="text-abstract">   
+<p>In the previous posts we developed a <a href="https://techvagabond.org/forecasting-profits-direction-in-a-dataset-of-cac40-trades/">random forest model</a>
+ and <a href="https://techvagabond.org/forecasting-profits-direction-walk-forward-validation/">walk-forward validation approach</a>
+ to forecast the direction of trades in a CAC40 dataset. Here we investigate the adoption of a logistic model instead of random forests. Since we still adopt a walk-forward validation, we will actually adopt an ensemble of logistic models, one for each of the walk-forward splitting.</p>
+<p>Logistic modeling is quite common in binary classification problems, it is based on simple math which extends the linear regression approach, it has a nice bayesian interpretation and it can be seen as a single-layer perceptron so a first step in the world of neural networks and deep learning. Overall, it is a model that is worth testing!</p>
+<div class="text-code-r"> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#75715e"># splitting training and testing dataset</span>
+ part <span style="color:#f92672">=</span> <span style="color:#a6e22e">createDataPartitionWT</span>(y <span style="color:#f92672">=</span> data<span style="color:#f92672">$</span>dstart, p <span style="color:#f92672">=</span> <span style="color:#ae81ff">.75</span>);   
+
+ <span style="color:#75715e"># training ensemble logistic models</span>
+ glmFit <span style="color:#f92672">=</span> <span style="color:#a6e22e">list</span>();
+ <span style="color:#a6e22e">for</span>(k in <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>part<span style="color:#f92672">$</span>num) {
+     training <span style="color:#f92672">=</span> data[part<span style="color:#f92672">$</span>train[[k]], fset];
+ 
+     <span style="color:#a6e22e">set.seed</span>(<span style="color:#ae81ff">567</span>);
+     ctrl <span style="color:#f92672">=</span> <span style="color:#a6e22e">trainControl</span>(method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;cv&#34;</span>,  number <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>, classProbs <span style="color:#f92672">=</span> <span style="color:#66d9ef">TRUE</span>, savePredictions <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;all&#34;</span>, allowParallel<span style="color:#f92672">=</span>T);
+     glmFit[[k]] <span style="color:#f92672">=</span> caret<span style="color:#f92672">::</span><span style="color:#a6e22e">train</span>(class <span style="color:#f92672">~</span> ., data <span style="color:#f92672">=</span> training, method <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;glm&#34;</span>, family <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;binomial&#34;</span>, preProc <span style="color:#f92672">=</span> <span style="color:#a6e22e">c</span>(<span style="color:#e6db74">&#34;center&#34;</span>, <span style="color:#e6db74">&#34;scale&#34;</span>), trControl <span style="color:#f92672">=</span> ctrl);
+ }
+</code></pre></div></div>
+<p>Following the training, we can check the ROC plots for both the testing and verif datasets. The results are not surprising, sensitivity and specificity are much worse in the verification datasets. However, what is somehow surprising,  is that comparing the ROC of the verif datasets with previous random forest model we will see that logistic classification seems to be worse and this is also confirmed by both the CM and the expected cumulative pnl for the coming week.</p>
+<div class="image-row"> 
+    <div class="image-column"> 
+         <div class="text-code-r" style="width:80%"> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#75715e"># verif results: CM</span>
+ Confusion Matrix and Statistics
+
+          Reference
+ Prediction N P
+          N <span style="color:#ae81ff">5</span> <span style="color:#ae81ff">7</span>
+          P <span style="color:#ae81ff">7</span> <span style="color:#ae81ff">7</span>
+                                          
+               Accuracy <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.4615</span>          
+                 <span style="color:#ae81ff">95</span>% CI <span style="color:#f92672">:</span> (<span style="color:#ae81ff">0.2659</span>, <span style="color:#ae81ff">0.6663</span>)
+    No Information Rate <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.5385</span>          
+    P<span style="color:#f92672">-</span>Value [Acc <span style="color:#f92672">&gt;</span> NIR] <span style="color:#f92672">:</span> <span style="color:#ae81ff">0.8373</span>          
+                                          
+                  Kappa <span style="color:#f92672">:</span> <span style="color:#ae81ff">-0.0833</span>         
+                                          
+ Mcnemar<span style="color:#e6db74">&#39;s Test P-Value : 1.0000          
+</span><span style="color:#e6db74">                                          
+</span><span style="color:#e6db74">            Sensitivity : 0.5000          
+</span><span style="color:#e6db74">            Specificity : 0.4167          
+</span><span style="color:#e6db74">         Pos Pred Value : 0.5000          
+</span><span style="color:#e6db74">         Neg Pred Value : 0.4167          
+</span><span style="color:#e6db74">             Prevalence : 0.5385          
+</span><span style="color:#e6db74">         Detection Rate : 0.2692          
+</span><span style="color:#e6db74">   Detection Prevalence : 0.5385          
+</span><span style="color:#e6db74">      Balanced Accuracy : 0.4583          
+</span><span style="color:#e6db74">                                          
+</span><span style="color:#e6db74">       &#39;</span>Positive<span style="color:#e6db74">&#39;</span><span style="color:#960050;background-color:#1e0010"> Class : P               </span>
+
+ <span style="color:#a6e22e">auc</span>(ROC);
+ Area under the curve<span style="color:#f92672">:</span> <span style="color:#ae81ff">0.494</span>
+</code></pre></div></div>
+    </div>
+    <div class="image-column"> 
+        <img src="../img/blog-wf-logit/ensemble-logit-roc.png" style="width:80%">
+        <img src="../img/blog-wf-logit/verif-logit-roc.png" style="width:80%">
+    </div>
+</div>
+<p>Overall, the logistic model seems to be much less selective that the random forest one, we have more trades 14 instead of 6 but unfortunately the accuracy of forecasting is not improved, so resulting on a much worse expected pnl (around -40 instead of +7).</p>
+<div class="image-center2"> 
+    <img src="../img/blog-wf-logit/pnl-logit-exp.png" style="width:100%">
+</div>
+<p>A nice thing about logistic model is that they support and easy interpretation of the forecasting result. It is sufficient to check the fitted models to identify the features which contributes most to the classification process. For example checking the seven logistic models by the <em>summary()</em> function we found that only three features are really important in the classification: <strong>ctr_tp</strong>, <strong>ctr_sl</strong> and <strong>ccl_area</strong>.</p>
+<div class="text-code-r"> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"> <span style="color:#a6e22e">summary</span>(glmFit[[7]]);
+ Deviance Residuals<span style="color:#f92672">:</span> 
+     Min       <span style="color:#ae81ff">1</span>Q   Median       <span style="color:#ae81ff">3</span>Q      Max  
+ <span style="color:#ae81ff">-1.8650</span>  <span style="color:#ae81ff">-1.0848</span>  <span style="color:#ae81ff">-0.8134</span>   <span style="color:#ae81ff">1.1854</span>   <span style="color:#ae81ff">1.9316</span>  
+
+ Coefficients<span style="color:#f92672">:</span>
+             Estimate Std. Error z value <span style="color:#a6e22e">Pr</span>(<span style="color:#f92672">&gt;|</span>z<span style="color:#f92672">|</span>)    
+ (Intercept) <span style="color:#ae81ff">-0.09850</span>    <span style="color:#ae81ff">0.08912</span>  <span style="color:#ae81ff">-1.105</span>  <span style="color:#ae81ff">0.26905</span>    
+ dstart      <span style="color:#ae81ff">-0.06235</span>    <span style="color:#ae81ff">0.09139</span>  <span style="color:#ae81ff">-0.682</span>  <span style="color:#ae81ff">0.49506</span>    
+ dow          <span style="color:#ae81ff">0.10158</span>    <span style="color:#ae81ff">0.10002</span>   <span style="color:#ae81ff">1.016</span>  <span style="color:#ae81ff">0.30979</span>    
+ hour        <span style="color:#ae81ff">-0.05234</span>    <span style="color:#ae81ff">0.09246</span>  <span style="color:#ae81ff">-0.566</span>  <span style="color:#ae81ff">0.57130</span>    
+ pnl         <span style="color:#ae81ff">-0.38413</span>    <span style="color:#ae81ff">0.24534</span>  <span style="color:#ae81ff">-1.566</span>  <span style="color:#ae81ff">0.11741</span>    
+ pf          <span style="color:#ae81ff">-0.12350</span>    <span style="color:#ae81ff">0.11852</span>  <span style="color:#ae81ff">-1.042</span>  <span style="color:#ae81ff">0.29742</span>    
+ ctr_tp       <span style="color:#ae81ff">0.68536</span>    <span style="color:#ae81ff">0.17379</span>   <span style="color:#ae81ff">3.944</span> <span style="color:#ae81ff">8.03e-05</span> <span style="color:#f92672">***</span>
+ ctr_sl      <span style="color:#ae81ff">-0.54886</span>    <span style="color:#ae81ff">0.18478</span>  <span style="color:#ae81ff">-2.970</span>  <span style="color:#ae81ff">0.00298</span> <span style="color:#f92672">**</span> 
+ pnl_day      <span style="color:#ae81ff">0.21208</span>    <span style="color:#ae81ff">0.17444</span>   <span style="color:#ae81ff">1.216</span>  <span style="color:#ae81ff">0.22405</span>    
+ pwrong_max   <span style="color:#ae81ff">0.02765</span>    <span style="color:#ae81ff">0.10431</span>   <span style="color:#ae81ff">0.265</span>  <span style="color:#ae81ff">0.79092</span>    
+ ccl_area     <span style="color:#ae81ff">0.47819</span>    <span style="color:#ae81ff">0.16730</span>   <span style="color:#ae81ff">2.858</span>  <span style="color:#ae81ff">0.00426</span> <span style="color:#f92672">**</span> 
+ <span style="color:#f92672">---</span>
+ Signif. codes<span style="color:#f92672">:</span>  <span style="color:#ae81ff">0</span> ‘<span style="color:#f92672">***</span>’ <span style="color:#ae81ff">0.001</span> ‘<span style="color:#f92672">**</span>’ <span style="color:#ae81ff">0.01</span> ‘<span style="color:#f92672">*</span>’ <span style="color:#ae81ff">0.05</span> ‘.’ <span style="color:#ae81ff">0.1</span> ‘ ’ <span style="color:#ae81ff">1</span>
+
+( Dispersion parameter for binomial family taken to be <span style="color:#ae81ff">1</span>)
+
+     Null deviance<span style="color:#f92672">:</span> <span style="color:#ae81ff">745.86</span>  on <span style="color:#ae81ff">538</span>  degrees of freedom
+ Residual deviance<span style="color:#f92672">:</span> <span style="color:#ae81ff">712.07</span>  on <span style="color:#ae81ff">528</span>  degrees of freedom
+ AIC<span style="color:#f92672">:</span> <span style="color:#ae81ff">734.07</span>
+
+ Number of Fisher Scoring iterations<span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>
+
+
+ car<span style="color:#f92672">::</span><span style="color:#a6e22e">Anova</span>(glmFit[[7]]<span style="color:#f92672">$</span>finalModel);
+ Analysis of Deviance <span style="color:#a6e22e">Table </span>(Type II tests)
+
+ Response<span style="color:#f92672">:</span> .outcome
+            LR Chisq Df <span style="color:#a6e22e">Pr</span>(<span style="color:#f92672">&gt;</span>Chisq)    
+ dstart       <span style="color:#ae81ff">0.4660</span>  <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0.494842</span>    
+ dow          <span style="color:#ae81ff">1.0347</span>  <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0.309051</span>    
+ hour         <span style="color:#ae81ff">0.3208</span>  <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0.571135</span>    
+ pnl          <span style="color:#ae81ff">2.4643</span>  <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0.116458</span>    
+ pf           <span style="color:#ae81ff">1.1863</span>  <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0.276073</span>    
+ ctr_tp      <span style="color:#ae81ff">16.8027</span>  <span style="color:#ae81ff">1</span>  <span style="color:#ae81ff">4.147e-05</span> <span style="color:#f92672">***</span>
+ ctr_sl       <span style="color:#ae81ff">9.3435</span>  <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0.002238</span> <span style="color:#f92672">**</span> 
+ pnl_day      <span style="color:#ae81ff">1.4855</span>  <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0.222909</span>    
+ pwrong_max   <span style="color:#ae81ff">0.0702</span>  <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0.791025</span>    
+ ccl_area     <span style="color:#ae81ff">8.6183</span>  <span style="color:#ae81ff">1</span>   <span style="color:#ae81ff">0.003328</span> <span style="color:#f92672">**</span> 
+ <span style="color:#f92672">---</span>
+ Signif. codes<span style="color:#f92672">:</span>  <span style="color:#ae81ff">0</span> ‘<span style="color:#f92672">***</span>’ <span style="color:#ae81ff">0.001</span> ‘<span style="color:#f92672">**</span>’ <span style="color:#ae81ff">0.01</span> ‘<span style="color:#f92672">*</span>’ <span style="color:#ae81ff">0.05</span> ‘.’ <span style="color:#ae81ff">0.1</span> ‘ ’ <span style="color:#ae81ff">1</span>
+</code></pre></div></div>
+<p>We could push the analysis a step further by retraining a logistic model considering only such &ldquo;important&rdquo; features and, then, by analyzing their crossed behaviors.</p>
+<div class="text-code-r"> 
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-R" data-lang="R"><span style="color:#75715e"># fit a reduced set of features</span>
+training <span style="color:#f92672">=</span> data[part<span style="color:#f92672">$</span>train[[7]], fset];
+fit <span style="color:#f92672">=</span> <span style="color:#a6e22e">glm</span>(class <span style="color:#f92672">~</span> ., data <span style="color:#f92672">=</span> training<span style="color:#a6e22e">[c</span>(<span style="color:#e6db74">&#34;ctr_tp&#34;</span>, <span style="color:#e6db74">&#34;ctr_sl&#34;</span>, <span style="color:#e6db74">&#34;ccl_area&#34;</span>, <span style="color:#e6db74">&#34;class&#34;</span>)], family <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;binomial&#34;</span>);
+
+<span style="color:#75715e"># training results</span>
+<span style="color:#a6e22e">summary</span>(fit)
+
+Call<span style="color:#f92672">:</span>
+<span style="color:#a6e22e">glm</span>(formula <span style="color:#f92672">=</span> class <span style="color:#f92672">~</span> ., family <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;binomial&#34;</span>, data <span style="color:#f92672">=</span> training<span style="color:#a6e22e">[c</span>(<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">7</span>, <span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">11</span>)])
+
+Deviance Residuals<span style="color:#f92672">:</span> 
+    Min       <span style="color:#ae81ff">1</span>Q   Median       <span style="color:#ae81ff">3</span>Q      Max  
+<span style="color:#ae81ff">-1.8616</span>  <span style="color:#ae81ff">-1.0799</span>  <span style="color:#ae81ff">-0.8389</span>   <span style="color:#ae81ff">1.2237</span>   <span style="color:#ae81ff">1.7239</span>  
+
+Coefficients<span style="color:#f92672">:</span>
+              Estimate Std. Error z value <span style="color:#a6e22e">Pr</span>(<span style="color:#f92672">&gt;|</span>z<span style="color:#f92672">|</span>)    
+(Intercept) <span style="color:#ae81ff">-0.6088330</span>  <span style="color:#ae81ff">0.1720067</span>  <span style="color:#ae81ff">-3.540</span> <span style="color:#ae81ff">0.000401</span> <span style="color:#f92672">***</span>
+ctr_tp       <span style="color:#ae81ff">0.0623430</span>  <span style="color:#ae81ff">0.0146327</span>   <span style="color:#ae81ff">4.261</span> <span style="color:#ae81ff">2.04e-05</span> <span style="color:#f92672">***</span>
+ctr_sl      <span style="color:#ae81ff">-0.0923482</span>  <span style="color:#ae81ff">0.0232163</span>  <span style="color:#ae81ff">-3.978</span> <span style="color:#ae81ff">6.96e-05</span> <span style="color:#f92672">***</span>
+ccl_area     <span style="color:#ae81ff">0.0017915</span>  <span style="color:#ae81ff">0.0006155</span>   <span style="color:#ae81ff">2.911</span> <span style="color:#ae81ff">0.003606</span> <span style="color:#f92672">**</span> 
+<span style="color:#f92672">---</span>
+Signif. codes<span style="color:#f92672">:</span>  <span style="color:#ae81ff">0</span> ‘<span style="color:#f92672">***</span>’ <span style="color:#ae81ff">0.001</span> ‘<span style="color:#f92672">**</span>’ <span style="color:#ae81ff">0.01</span> ‘<span style="color:#f92672">*</span>’ <span style="color:#ae81ff">0.05</span> ‘.’ <span style="color:#ae81ff">0.1</span> ‘ ’ <span style="color:#ae81ff">1</span>
+
+(Dispersion parameter for binomial family taken to be <span style="color:#ae81ff">1</span>)
+
+    Null deviance<span style="color:#f92672">:</span> <span style="color:#ae81ff">745.86</span>  on <span style="color:#ae81ff">538</span>  degrees of freedom
+Residual deviance<span style="color:#f92672">:</span> <span style="color:#ae81ff">716.97</span>  on <span style="color:#ae81ff">535</span>  degrees of freedom
+AIC<span style="color:#f92672">:</span> <span style="color:#ae81ff">724.97</span>
+
+Number of Fisher Scoring iterations<span style="color:#f92672">:</span> <span style="color:#ae81ff">4</span>
+
+<span style="color:#75715e"># plot features behavior</span>
+<span style="color:#a6e22e">visreg</span>(fit, scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;response&#34;</span>, gg<span style="color:#f92672">=</span>T, xvar<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ctr_tp&#34;</span>,  by<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccl_area&#34;</span>, rag<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>);
+<span style="color:#a6e22e">visreg</span>(fit, scale<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;response&#34;</span>, gg<span style="color:#f92672">=</span>T, xvar<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ctr_sl&#34;</span>,  by<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ccl_area&#34;</span>, rag<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>);
+
+<span style="color:#75715e"># plot ROC</span>
+df <span style="color:#f92672">=</span> <span style="color:#a6e22e">data.frame</span>(class <span style="color:#f92672">=</span> training<span style="color:#f92672">$</span>class, prob <span style="color:#f92672">=</span> fit<span style="color:#f92672">$</span>fitted.values);
+<span style="color:#a6e22e">ggplot</span>(df, <span style="color:#a6e22e">aes</span>(d <span style="color:#f92672">=</span> class, m <span style="color:#f92672">=</span> prob)) <span style="color:#f92672">+</span> <span style="color:#a6e22e">geom_roc</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">style_roc</span>() <span style="color:#f92672">+</span> <span style="color:#a6e22e">labs</span>(title<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;Ensemble ROC Plot (testing dataset)&#34;</span>);
+
+</code></pre></div></div>
+<p>The probability of having a profit increase by increasing <strong>ctr_tp</strong> and decreasing <strong>ctr_sl</strong> as it was expected. More interesting, higher values of <strong>ccl_area</strong> contribute to a positive pnl but not in a linear way, it looks like only values greater than 100 are relevant.</p>
+<div class="image-center2"> 
+    <img src="../img/blog-wf-logit/fit-logit-visreg.png" style="width:150%">
+</div>
+<p>The ROC plots of the seven models of the ensemble have similar shapes, and this is quite good news, it means that the overall behaviour of the logistic model with a reduced set of features is quite stable despite the walk-forward splitting.  A threshold around 0.6 seems to be a common optimal point.</p>
+<div class="image-center2"> 
+    <img src="../img/blog-wf-logit/fit-logit-roc.png" style="width:150%">
+</div>
+<p>The adoption of such optimal threshold will result in an improved estimated pnl.</p>
+<div class="image-center2"> 
+    <img src="../img/blog-wf-logit/pnl-logit-exp2.png" style="width:100%">
+</div>
+</div>
+      </section>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="https://techvagabond.org/img/profile-picture-gl.jpg" alt="Author" />
+          <span class="post-card-author"><a href="/">Gabriele Luculli</a></span>
+      </footer>
+    </div>
+</article>
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+      <span class="page-number">&nbsp;</span>
+      
+          <a class="older-posts" href="/forecasting-profits-direction-walk-forward-validation/"><span class="hide">Previous Post</span> &rarr;</a>
+      
+    </nav>
+
+    
+    
+    
+
+  </div>
+</main>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a> v0.4.0 - Nov/2020 - GL ©2020 - root@techvagabond.org <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/luculli" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://techvagabond.org/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+</body></html>

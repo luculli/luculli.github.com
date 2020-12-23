@@ -6,7 +6,36 @@
     <description>Recent content in Posts on Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Tue, 17 Nov 2020 14:57:38 +0200</lastBuildDate><atom:link href="https://techvagabond.org/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 10 Dec 2020 14:57:38 +0200</lastBuildDate><atom:link href="https://techvagabond.org/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Forecasting Profits Direction: Weekly Stop-Loss and Stop-Gain</title>
+      <link>https://techvagabond.org/forecasting-profits-direction-weekly-stop-loss-and-stop-gain/</link>
+      <pubDate>Thu, 10 Dec 2020 14:57:38 +0200</pubDate>
+      
+      <guid>https://techvagabond.org/forecasting-profits-direction-weekly-stop-loss-and-stop-gain/</guid>
+      <description>In a previous post we backtested our logistic model with walk-forward and we found two useful trading configurations, one for Monday-Wednesday and the other for Tuesday-Thursday-Friday. They are reported hereafter.
+   Now, a question we could have is, do there is any way to improve our pnl ? We know that we could try a different machine learning paradigm in order to improve our training metrics (i.e. accuracy, sensitivity and specificity) but, assuming we don&amp;rsquo;t want to go to this direction, we can still try to improve our pnl by reducing our losses.</description>
+    </item>
+    
+    <item>
+      <title>Analysis and Classification of Aerial LiDAR Data</title>
+      <link>https://techvagabond.org/analysis-and-classification-of-aerial-lidar-data/</link>
+      <pubDate>Mon, 23 Nov 2020 14:57:38 +0200</pubDate>
+      
+      <guid>https://techvagabond.org/analysis-and-classification-of-aerial-lidar-data/</guid>
+      <description>The purpose of this project was to analyse some LiDAR (Light Detection and Ranging) data from a drone and to classify the detected objects. Our lidar data is related to mountain regions where there can be different kinds of vegetation, high-voltage electric lines, rivers or houses. This kind of analysis can be useful for power line inspections by a drone or the inspection of riverbeds or the analysis of any other human or natural feature which is detectable by a lidar sensor.</description>
+    </item>
+    
+    <item>
+      <title>Forecasting Profits Direction: PnL Backtesting</title>
+      <link>https://techvagabond.org/forecasting-profits-direction-pnl-backtesting/</link>
+      <pubDate>Wed, 18 Nov 2020 14:57:38 +0200</pubDate>
+      
+      <guid>https://techvagabond.org/forecasting-profits-direction-pnl-backtesting/</guid>
+      <description>In a previous post we developed a logistic model with walk-forward to forecast profits direction as extension of a random forest model with the hope to improve its forecasting capabilities. Unfortunately, we didn&amp;rsquo;t get any better metric (accuracy, sensitivity, etc) and the bare testing of pnl prediction in a single week didn&amp;rsquo;t provide better results either.
+However, it is not possible to draw a general conclusion by testing a single case because most of the datasets coming from the financial markets are no stationary by nature, therefore no single case testing can be generalized.</description>
+    </item>
+    
     <item>
       <title>Forecasting Profits Direction: Logistic Model</title>
       <link>https://techvagabond.org/forecasting-profits-direction-logistic-model/</link>

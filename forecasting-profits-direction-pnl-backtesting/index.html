@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en-US" />
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+    <title>Forecasting Profits Direction: PnL Backtesting &middot; Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page</title>
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="https://techvagabond.org/favicon.ico" />
+    <link rel="canonical" href="https://techvagabond.org/forecasting-profits-direction-pnl-backtesting/" />
+
+     <meta name="description" content="In a previous post we developed a logistic model with walk-forward to forecast profits direction as extension of a random forest model with the hope to improve " /> 
+
+     
+    
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:image" content="https://techvagabond.org/img/blog-pnl-bt/bt-pnl.jpg"/>
+    
+ 
+    <meta name="twitter:title" content="Forecasting Profits Direction: PnL Backtesting"/>
+    <meta name="twitter:description" content="In a previous post we developed a logistic model with walk-forward to forecast profits direction as extension of a random forest model with the hope to improve "/>
+    <meta name="twitter:url" content="https://techvagabond.org/forecasting-profits-direction-pnl-backtesting/" />
+    <meta name="twitter:site" content="@"/>
+
+    <meta property="og:site_name" content="Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page" />
+    <meta property="og:title" content="Forecasting Profits Direction: PnL Backtesting &middot; Gabriele LUCULLI&#39;s Web Page" />
+    <meta property="og:url" content="https://techvagabond.org/forecasting-profits-direction-pnl-backtesting/" />
+    
+
+    <meta property="og:type" content="article" />
+    <meta property="og:description" content="In a previous post we developed a logistic model with walk-forward to forecast profits direction as extension of a random forest model with the hope to improve " />
+
+    <meta property="article:published_time" content="2020-11-18T14:57:38&#43;02:00" />
+    <meta property="article:tag" content="Technology" /><meta property="article:tag" content="Machine learning" /><meta property="article:tag" content="Finance" />
+
+    <meta property="og:image" content="https://techvagabond.org/img/blog-pnl-bt/bt-pnl.jpg"/>
+
+
+    <meta name="generator" content="Hugo 0.75.1" />
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/built/screen.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/css/casper-two.css" /> 
+    <link rel="stylesheet" type="text/css" href="https://techvagabond.org/css/overrides.css" /> 
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css" />
+     <link rel="stylesheet" href="https://techvagabond.org/css/overrides.css" /> 
+
+     
+
+    
+    
+    <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+    <link rel="manifest" href="img/favicon/site.webmanifest">
+    <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+    <link rel="shortcut icon" href="img/favicon/favicon.ico">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="msapplication-config" content="img/favicon/browserconfig.xml">
+    <meta name="theme-color" content="#ffffff">
+</head>
+
+
+<body class="ctsingle">
+
+  <div class="site-wrapper"> 
+
+<header class="site-header outer "  style="background-image: url(https://techvagabond.org/img/mountains-sun.jpeg)"  >
+  <div class="inner">
+    <div class="site-header-content">
+      <h1 class="site-title"> Gabriele LUCULLI&#39;s Web Page  </h1>
+        <h2 class="site-description">Technology | Finance | Research | Engineering </h2>
+    </div>
+
+    <nav class="site-nav">
+      <div class="site-nav-left"><ul class="nav" role="menu">
+        
+        
+        
+            <li class="" role="menuitem">
+              <a href="/">Home</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/papers/">Papers</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/projects/">Projects</a>
+            </li>
+        
+            <li class="" role="menuitem">
+              <a href="/categories/blog/">Blog</a>
+            </li>
+        
+      </ul></div>
+
+      <div class="site-nav-right">
+        <div class="social-links">
+                    
+
+                    
+
+                    <a class="social-link" href="https://github.com/luculli" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+
+                    
+
+                    
+        </div>  
+            
+      </div>
+
+    </nav>  
+
+  </div>
+</header>
+
+
+<main id="site-main" class="site-main outer" role="main">
+  <div class="inner">
+    
+    <div class="post-feed">
+      <article class="post-card post"> 
+    
+    <a class="post-card-image-link" href="https://techvagabond.org/forecasting-profits-direction-pnl-backtesting/">
+      <div class="post-card-image" style="background-image: url(https://techvagabond.org/img/blog-pnl-bt/bt-pnl.jpg)"></div>
+    </a>
+    
+
+    <div class="post-card-content">
+      <a class="post-card-content-link" href="https://techvagabond.org/forecasting-profits-direction-pnl-backtesting/">
+          <header class="post-card-header">
+              <span class="post-card-tags">
+              #Technology 
+              #Machine learning 
+              #Finance  </span>
+              
+              <h2 class="post-card-title">Forecasting Profits Direction: PnL Backtesting</h2>
+          </header>
+      </a>
+      <section class="post-card-excerpt" style="padding: 0 25px;">
+          <div class="text-abstract">   
+<p>In a previous post we developed a <a href="https://techvagabond.org/forecasting-profits-direction-logistic-model/">logistic model with walk-forward</a>
+ to forecast profits direction as extension of a <a href="https://techvagabond.org/forecasting-profits-direction-in-a-dataset-of-cac40-trades/">random forest model</a>
+ with the hope to improve its forecasting capabilities. Unfortunately, we didn&rsquo;t get any better metric (accuracy, sensitivity, etc) and the bare testing of pnl prediction in a single week didn&rsquo;t provide better results either.</p>
+<p>However, it is not possible to draw a general conclusion by testing a single case because most of the datasets coming from the financial markets are no stationary by nature, therefore no single case testing can be generalized. A common approach to decide whether a forecasting model is useful or not in trading is to perform a backtesting of the algorithm over datasets of several years. This is essentially a form of validation driven by simulation.</p>
+<p>The backtesting of the baseline case (i.e. random forest model without walk-forward splitting) is absolutely not interesting, given that it doesn&rsquo;t provide any useful pnl. Things change a bit when we apply walk-forward splitting: we can identify a positive pnl trend for a timeframe of half a year even if negative years (2015 and 2017) alternate to positive ones (2016, 2018 and 2019) and yearly pnl increments are absolutely not uniform. Generally speaking, it is important to look for strategies which have <strong>quite uniform pnl over the years</strong>, even if they are not always positive, because this is an indication that the &ldquo;trading ideas&rdquo; underlying the strategy are sound and therefore can be easily trusted; in addition, this avoid to manage the risk associated with the implicit volatility we would have in a strategy with non uniform pnl increments.</p>
+<div class="image-row"> 
+  <div class="image-column">
+    <img src="../img/blog-pnl-bt/pnl-baseline.png" style="width:110% centering">
+  </div>
+  <div class="image-column">  
+    <img src="../img/blog-pnl-bt/pnl-baseline-wf.png" style="width:110% centering">
+  </div>
+</div>
+<p>The logistic model with default threshold of 0.5 bring some interesting result: we have positive pnl over the years with quite uniform pnl increments in the case of a timeframe of one year. Despite the fact that the backtesting is limited to only 6 years, the result looks really promising.</p>
+<img src="../img/blog-pnl-bt/pnl-logit-0.png">
+<p>Pushing a bit forward the exploration we found that different days have different pnl behaviors, in particular our experiments showed that:</p>
+<ul>
+<li>
+<p>Tuesday, Thursday and Friday (TTF) can be grouped together, having a similar behavior (<em>first image</em>)</p>
+</li>
+<li>
+<p>Monday and Wednesday (MW) can also be grouped together (<em>second image</em>)</p>
+</li>
+</ul>
+<p>The origin of positive pnl in the previous global plot (all the days of the week together) seems to be the positive behavior of Monday and Wednesday as it is quite apparent considering the
+timeframe one year. MW results are still positive even in the other timeframes, but such positive contributions are reduced in the global plot by the negative effect of the other days of the week. Considering the whole period of 5 years, TTF contributions are limited whatever timeframe is chosen while MF cumulative contributions are growing on average.</p>
+<div class="image-row"> 
+  <div class="image-column">
+    <img src="../img/blog-pnl-bt/pnl-logit-0-075-245-global.png" style="width:110% centering">
+  </div>
+  <div class="image-column">  
+    <img src="../img/blog-pnl-bt/pnl-logit-0-075-13-global.png" style="width:110% centering">
+  </div>
+</div>
+<p>Since we discovered that the days of the week can be split in two sets where our strategy has quite different pnl behaviors, we investigated the effect of training our models on the two different sets (i.e. local training) instead of having a single training on the global set and then a local forecasting like we did before. The results are quite interesting:</p>
+<ul>
+<li>
+<p>There is now is a positive configuration for the TTF group, timeframe 6 month, while before all the configurations were negative. This indicates that global training with the MW dataset interfere in a negative way toward the learning of TTF and when such interference is removed, a useful forecasting model could be retrieved.</p>
+</li>
+<li>
+<p>Something different happens for the MW group. All the previous positive MW forecasting suffers from the splitting of training models and this suggest that training with the TTF dataset interfere in a positive way toward the learning of MW. It looks like there is a sort of <strong>&ldquo;causal-effect&rdquo; relationship</strong> between the trading on TTF and MW.</p>
+</li>
+</ul>
+<p>For the moment, the best trading configuration is: 1) a global training model with timeframe of 1 year for MW and 2) a local training with timeframe of 6 months for TTF. This will provide a cumulative pnl of about 1600 in the 5 years, which is much higher than the optimal pnl of the basic logistic model (pnl around 900 with timeframe of 1 year).</p>
+<div class="image-row"> 
+  <div class="image-column">
+    <img src="../img/blog-pnl-bt/pnl-logit-0-075-245.png" style="width:110% centering">
+  </div>
+  <div class="image-column">  
+    <img src="../img/blog-pnl-bt/pnl-logit-0-075-13.png" style="width:110% centering">
+  </div>
+</div>
+<p>We previously saw that pnl can be improved by considering the <a href="https://techvagabond.org/forecasting-profits-direction-in-a-dataset-of-cac40-trades/">optimal threshold of a classifier</a>
+ but unfortunately such threshold can only be a posterior computation. However, we can still try to approximate it, for example by assuming that the optimal threshold of a given week should not be too far from the one of the previous week or it should be a linear combination of the threshold of the previous weeks. For the moment we are going to start with a very basic method, we can start assuming a naive estimator of optimal threshold by considering as estimation of the optimal threshold of the current week the actual optimal threshold of the previous week. Repeating all the previous training/forecasting considering all the days of the week, then two day groups, local and global training, we will get the following results:</p>
+<ul>
+<li>
+<p>The best configuration for MW is still the global training model with timeframe of 1 years. Actually, we got a total pnl just over 1000 which is even better of the previous case.</p>
+</li>
+<li>
+<p>The best configuration for TTF is still the local training model, as before, but with timeframe of 1 years this time, instead of 6 months. The pnl is more or less the same, just over 800. It is interesting to observe that in this case the shapes for any timeframe are very similar between the training with the default threshold and the actual estimator. This can explain why there is not improvement in the total pnl, being not so sensitive to the threshold value.</p>
+</li>
+</ul>
+<img src="../img/blog-pnl-bt/pnl-logit-1.png">
+<div class="image-row"> 
+  <div class="image-column">
+    <img src="../img/blog-pnl-bt/pnl-logit-1-075-245-global.png" style="width:110% centering">
+  </div>
+  <div class="image-column">  
+    <img src="../img/blog-pnl-bt/pnl-logit-1-075-13-global.png" style="width:110% centering">
+  </div>
+</div>
+<div class="image-row"> 
+  <div class="image-column">
+    <img src="../img/blog-pnl-bt/pnl-logit-1-075-245.png" style="width:110% centering">
+  </div>
+  <div class="image-column">  
+    <img src="../img/blog-pnl-bt/pnl-logit-1-075-13.png" style="width:110% centering">
+  </div>
+</div>
+<p>The fact that adopting an estimated optimal threshold didn&rsquo;t changed the overall picture was unexpected, so I wanted to try to see what happened if the optimal threshold was computed not on a plain ROC where all the possible thresholds are present but on a sort of &ldquo;constrained ROC&rdquo; where only the thresholds which have a minimum level of specificity are taken into account. So recomputing the backtesting for the case where ROC specificities are bigger than 0.75 resulted on the following results:</p>
+<ul>
+<li>
+<p>The plot in the case of global training for the whole week has shapes similar to the previous naif estimator and not so different from the baseline case.</p>
+</li>
+<li>
+<p>The plots in the case of global/local training and split week (TTF vs MW) are also similar to the previous ones.</p>
+</li>
+</ul>
+<p>So, the conclusion is that there is no benefit in constraining the level of specificity for the classifiers.</p>
+<img src="../img/blog-pnl-bt/pnl-logit-2-075.png">
+<div class="image-row"> 
+  <div class="image-column">
+    <img src="../img/blog-pnl-bt/pnl-logit-2-075-245-global.png" style="width:110% centering">
+  </div>
+  <div class="image-column">  
+    <img src="../img/blog-pnl-bt/pnl-logit-2-075-13-global.png" style="width:110% centering">
+  </div>
+</div>
+<div class="image-row"> 
+  <div class="image-column">
+    <img src="../img/blog-pnl-bt/pnl-logit-2-075-245.png" style="width:110% centering">
+  </div>
+  <div class="image-column">  
+    <img src="../img/blog-pnl-bt/pnl-logit-2-075-13.png" style="width:110% centering">
+  </div>
+</div>
+<p>In summary, the backtesting was successful to validate the usefulness of the developed logistic model with walk-forward validation for our dataset of CAC40 trades. It also helped to identify the optimal configuration to maximize the total pnl:</p>
+<ul>
+<li>
+<p>Split the week in two sets, MW and TTF</p>
+</li>
+<li>
+<p>Adopt a global training model with timeframe 1 year, default 0.5 threshold for MW</p>
+</li>
+<li>
+<p>Adopt a local training model with timeframe 6 months, default 0.5 threshold for TTF</p>
+</li>
+</ul>
+</div>
+ <!--  local JS and CSS libraries -->
+<script src="../js/zooming.min.js"></script>
+ <script>
+    new Zooming({
+      bgColor: 'rgb(FF, 0, 0)',
+      bgOpacity: 0
+    }).listen('img')
+</script>
+<style>
+    figure {
+      margin: 30px auto
+    }
+
+</style>  
+<style>
+    .galleria-stage {
+        height: 450px;
+        position: absolute;
+        top: 10px;
+        bottom: 60px;
+        left: 10px;
+        right: 10px;
+        overflow: hidden;
+    }
+</style>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous">
+
+      </section>
+
+      <footer class="post-card-meta">
+          <img class="author-profile-image" src="https://techvagabond.org/img/profile-picture-gl.jpg" alt="Author" />
+          <span class="post-card-author"><a href="/">Gabriele Luculli</a></span>
+      </footer>
+    </div>
+</article>
+    </div>
+
+    <nav class="pagination" role="navigation">
+      
+          <a class="newer-posts" href="/analysis-and-classification-of-aerial-lidar-data/">&larr; <span class="hide">Next Post</span></a>
+      
+      <span class="page-number">&nbsp;</span>
+      
+          <a class="older-posts" href="/forecasting-profits-direction-logistic-model/"><span class="hide">Previous Post</span> &rarr;</a>
+      
+    </nav>
+
+    
+    
+    
+
+  </div>
+</main>
+
+
+
+<footer class="site-footer outer">
+  <div class="site-footer-content inner">
+    <section class="copyright" style="line-height: 1.3em;">
+      <a href="/"></a> v0.5.0 - Dec/2020 - GL ©2020 - root@techvagabond.org <br>
+      
+    </section>
+    <nav class="site-footer-nav">
+        <a href="/">Latest Posts</a>
+        
+        
+        <a href="https://github.com/luculli" target="_blank" rel="noopener">Github</a>
+        
+        
+    </nav>  
+  </div>
+</footer>
+
+</div>
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+<script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="https://techvagabond.org/js/jquery.fitvids.js"></script>
+
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+
+</body></html>

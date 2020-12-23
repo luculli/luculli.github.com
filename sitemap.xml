@@ -4,46 +4,71 @@
   
   <url>
     <loc>https://techvagabond.org/categories/blog/</loc>
-    <lastmod>2020-11-17T14:57:38+02:00</lastmod>
+    <lastmod>2020-12-10T14:57:38+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://techvagabond.org/categories/</loc>
-    <lastmod>2020-11-17T14:57:38+02:00</lastmod>
+    <lastmod>2020-12-10T14:57:38+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://techvagabond.org/tags/finance/</loc>
-    <lastmod>2020-11-17T14:57:38+02:00</lastmod>
+    <lastmod>2020-12-10T14:57:38+02:00</lastmod>
   </url>
   
   <url>
-    <loc>https://techvagabond.org/forecasting-profits-direction-logistic-model/</loc>
-    <lastmod>2020-11-17T14:57:38+02:00</lastmod>
+    <loc>https://techvagabond.org/forecasting-profits-direction-weekly-stop-loss-and-stop-gain/</loc>
+    <lastmod>2020-12-10T14:57:38+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://techvagabond.org/tags/machine-learning/</loc>
-    <lastmod>2020-11-17T14:57:38+02:00</lastmod>
+    <lastmod>2020-12-10T14:57:38+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://techvagabond.org/post/</loc>
-    <lastmod>2020-11-17T14:57:38+02:00</lastmod>
+    <lastmod>2020-12-10T14:57:38+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://techvagabond.org/tags/</loc>
-    <lastmod>2020-11-17T14:57:38+02:00</lastmod>
+    <lastmod>2020-12-10T14:57:38+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://techvagabond.org/</loc>
-    <lastmod>2020-11-17T14:57:38+02:00</lastmod>
+    <lastmod>2020-12-10T14:57:38+02:00</lastmod>
   </url>
   
   <url>
     <loc>https://techvagabond.org/tags/technology/</loc>
+    <lastmod>2020-12-10T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/analysis-and-classification-of-aerial-lidar-data/</loc>
+    <lastmod>2020-11-23T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/tags/embedded-systems/</loc>
+    <lastmod>2020-11-23T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/categories/projects/</loc>
+    <lastmod>2020-11-23T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/forecasting-profits-direction-pnl-backtesting/</loc>
+    <lastmod>2020-11-18T14:57:38+02:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://techvagabond.org/forecasting-profits-direction-logistic-model/</loc>
     <lastmod>2020-11-17T14:57:38+02:00</lastmod>
   </url>
   
@@ -99,11 +124,6 @@
   
   <url>
     <loc>https://techvagabond.org/tags/eda/</loc>
-    <lastmod>2005-01-04T14:57:38+02:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://techvagabond.org/tags/embedded-systems/</loc>
     <lastmod>2005-01-04T14:57:38+02:00</lastmod>
   </url>
   
@@ -196,10 +216,6 @@
   
   <url>
     <loc>https://techvagabond.org/forecasting-profits-direction-in-a-dataset-of-cac40-trades/</loc>
-  </url>
-  
-  <url>
-    <loc>https://techvagabond.org/categories/projects/</loc>
   </url>
   
 </urlset>

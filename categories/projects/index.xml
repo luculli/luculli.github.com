@@ -5,7 +5,17 @@
     <link>https://techvagabond.org/categories/projects/</link>
     <description>Recent content in Projects on Tech Vagabond! - Gabriele LUCULLI&#39;s Web Page</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language><atom:link href="https://techvagabond.org/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-US</language>
+    <lastBuildDate>Mon, 23 Nov 2020 14:57:38 +0200</lastBuildDate><atom:link href="https://techvagabond.org/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Analysis and Classification of Aerial LiDAR Data</title>
+      <link>https://techvagabond.org/analysis-and-classification-of-aerial-lidar-data/</link>
+      <pubDate>Mon, 23 Nov 2020 14:57:38 +0200</pubDate>
+      
+      <guid>https://techvagabond.org/analysis-and-classification-of-aerial-lidar-data/</guid>
+      <description>The purpose of this project was to analyse some LiDAR (Light Detection and Ranging) data from a drone and to classify the detected objects. Our lidar data is related to mountain regions where there can be different kinds of vegetation, high-voltage electric lines, rivers or houses. This kind of analysis can be useful for power line inspections by a drone or the inspection of riverbeds or the analysis of any other human or natural feature which is detectable by a lidar sensor.</description>
+    </item>
+    
     <item>
       <title>FLAC Decoder Benchmarking on ARM</title>
       <link>https://techvagabond.org/flac-decoder-benchmarking-on-arm/</link>

@@ -13,6 +13,13 @@ body {
    background-color: lightseagreen;
 }
 
+.text-abstract ul li { 
+    padding: 0px 0px 0px; 
+}
+.text-abstract ul li:first-child { 
+    margin-bottom: 0px; 
+}
+
 .post-card-title {
     font-family: "Sofia", sans-serif;
     /* color: #0a4870; */
@@ -20,7 +27,16 @@ body {
 
 .post-card-excerpt p {
     text-align: justify;
-    padding-top: 15px;
+    padding-top: 2px;
+    padding-bottom: 0px;
+}
+
+.post-card-excerpt ul li {
+    text-align: justify;
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-left: 20px;
+    margin-right: 20px;
 }
 
 .post-card-author {
